@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">slifix</string>
+    <string name="login">Login</string>
+    <string name="desc">Desc</string>
+    <string name="forgot">Forgot Password?</string>
+    <string name="num_hint">91 98765 43210</string>
+    <string name="password">Password</string>
+    <string name="todo">TODO</string>
+    <string name="read_more">Read more</string>
+    <string name="agreement">I Accept Slifix\'s Term and Conditions</string>
+    <string name="gender">Gender</string>
+    <string name="name">Name</string>
+    <string name="register">Register</string>
+    <string name="veritify">We will send verification code to +</string>
+    <string name="cancel">CANCEL</string>
+    <string name="send_otp">SEND OTP</string>
+    <string name="otp_verification_register">Get New OTP</string>
+    <string name="enter_the_6_digit_code_sent_to_you_at">Input Contact No To Get Verification Code</string>
+    <string name="_123_456">123 456</string>
+    <string name="edit">Edit</string>
+    <string name="submit">Submit</string>
+    <string name="resend_code_in_02_59">Resend Code in 02:59</string>
+    <string name="create_new_password">Create New Password</string>
+    <string name="re_enter_new_password">Re-Enter New Password</string>
+    <string name="enter_new_password">Enter New Password</string>
+    <string name="otp_verification_register2"> OTP Verification Register</string>
+    <string name="enter_the_4_digitvcode_sent_to_you_at">Enter the 4-digit code sent to you at</string>
+    <string name="_1234">1234</string>
+    <string name="resetting_password">Resetting Password</string>
+    <string name="phone_number">Phone Number</string>
+</resources>
