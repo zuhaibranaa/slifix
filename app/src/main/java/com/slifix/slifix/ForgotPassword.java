@@ -28,7 +28,7 @@ public class ForgotPassword extends AppCompatActivity {
             @Override
             public void onActive() {
                 number = num.getText().toString();
-                Intent intent = new Intent(ForgotPassword.this,Sending_OTP_Forgot.class);
+                Intent intent = new Intent(ForgotPassword.this,Sending_OTP.class);
                 startActivity(intent);
             }
         });

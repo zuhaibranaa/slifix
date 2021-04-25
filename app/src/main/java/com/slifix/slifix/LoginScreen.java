@@ -28,10 +28,11 @@ public class LoginScreen extends AppCompatActivity {
     EditText number,pass;
     public static String n,p,t;
     SwipeButton login,signup;
-    public static String authToken;
-    public static RequestQueue queue;
-    public static StringRequest req;
-    public static JSONObject obj;
+    public String authToken;
+    public RequestQueue queue;
+    public StringRequest req;
+    public JSONObject obj;
+    public static boolean isForgot;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,7 +83,6 @@ public class LoginScreen extends AppCompatActivity {
                 e.printStackTrace();
             }
             if (authToken != null){
-                Toast.makeText(getApplicationContext(),authToken,Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), dashboard.class);
                 startActivity(intent);
                 finish();

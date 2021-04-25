@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.android.volley.*;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -35,26 +37,23 @@ public class enterOTP extends AppCompatActivity {
         submit = (Button) findViewById(R.id.otpSubmit);
         otpField = (EditText) findViewById(R.id.otpField);
         otpText = (TextView) findViewById(R.id.otpText);
-        txt = otpText.getText().toString();
-        txt = txt + mobile;
-        mobile = "+"+mobile;
-        otpText.setText(txt);
+//        mobile = "+"+mobile;
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 otp = otpField.getText().toString();
-                OTPSignUp();
+                OTPValidator();
             }
         });
     }
 
-    public void OTPSignUp() {
+    public void OTPValidator() {
         String url = "https://slifixfood.herokuapp.com/confirm/";
-        queue = VolleySingleton.getInstance(this).getRequestQueue();
+        queue = Volley.newRequestQueue(this);
         req = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(enterOTP.this, response, Toast.LENGTH_LONG).show();
+                Toast.makeText(enterOTP.this, mobile, Toast.LENGTH_SHORT).show();
                 String jsonString =response ;
                 try {
                     res = new JSONObject(jsonString);
@@ -66,6 +65,7 @@ public class enterOTP extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+                Toast.makeText(enterOTP.this, strJson, Toast.LENGTH_SHORT).show();
                 if (strJson != null){
                     Intent enterPass = new Intent(getApplicationContext(),createFirstTimePassword.class);
                     startActivity(enterPass);

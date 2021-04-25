@@ -14,6 +14,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.slifix.slifix.app.dashboard;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -51,42 +52,38 @@ public class Sending_OTP extends AppCompatActivity {
         tv_10_SendOTP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Sending_OTP.this, mobile, Toast.LENGTH_SHORT).show();
                 userSignUp();
             }
         });
     }
     public void userSignUp() {
+
         String url = "https://slifixfood.herokuapp.com/reg/";
         queue = VolleySingleton.getInstance(this).getRequestQueue();
-        req = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                String jsonString =response ;
-                try {
-                    res = new JSONObject(jsonString);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                try {
-                    status = res.getInt("status");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-                if (status == 200){
-                    Toast.makeText(getApplicationContext(), "Enter OTP",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(),createFirstTimePassword.class);
-                    startActivity(intent);
-                    finish();
-                }else {
-                    Toast.makeText(Sending_OTP.this, "Try Again An Error Encountered", Toast.LENGTH_SHORT).show();
-                }
+        req = new StringRequest(Request.Method.POST, url, response -> {
+            String jsonString =response ; //assign your JSON String here
+            try {
+                res = new JSONObject(jsonString);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
+            try {
+                status = res.getInt("status");
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
+            if (status == 200){
+                Intent it = new Intent(this,enterOTP.class);
+                startActivity(it);
+            }else if (status == 400){
+                Toast.makeText(this, "Phone Already Registered Try Login", Toast.LENGTH_SHORT).show();
+                Intent it = new Intent(this,LoginScreen.class);
+                startActivity(it);
+                finish();
+            }else{
+                Toast.makeText(this, "Internal Server Error", Toast.LENGTH_SHORT).show();
+            }
+        }, error -> {
         }){
             @Override
             protected Map<String,String> getParams(){
@@ -95,7 +92,7 @@ public class Sending_OTP extends AppCompatActivity {
                 return params;
             }
             @Override
-            public Map<String,String> getHeaders() throws AuthFailureError {
+            public Map<String,String> getHeaders() {
                 Map<String,String> params = new HashMap<String,String>();
                 params.put("Content-Type","application/x-www-form-urlencoded");
                 return params;
