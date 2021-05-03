@@ -23,6 +23,8 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.slifix.slifix.ForgotPassword.number;
+import static com.slifix.slifix.LoginScreen.isForgot;
 import static com.slifix.slifix.OTP_Reg.mobile;
 import static com.slifix.slifix.enterOTP.strJson;
 
@@ -53,7 +55,6 @@ int status;
                     v1=pass.getText().toString();
                     v2= confirmpass.getText().toString();
                     if(v1.equals(v2)){
-                        Toast.makeText(createFirstTimePassword.this, strJson, Toast.LENGTH_SHORT).show();
                         createPass(v1);
                     }else{
                         Toast.makeText(createFirstTimePassword.this, "Passwords Mismatch", Toast.LENGTH_SHORT).show();
@@ -100,7 +101,11 @@ int status;
             @Override
             protected Map<String,String> getParams(){
                 Map<String,String> params = new HashMap<String,String>();
-                params.put("phone",mobile);
+                if (isForgot){
+                    params.put("phone",number);
+                }else{
+                    params.put("phone",mobile);
+                }
                 params.put("password",pwd);
                 return params;
             }

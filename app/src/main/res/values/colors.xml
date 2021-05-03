@@ -10,4 +10,27 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+
+
+
+    <!-- COLOR FROM ASSETS PANEL -->
+    <color name="color_assets_3">#707070</color>
+    <color name="color_assets_4">#23222a</color>
+    <color name="color_assets_5">#f9f9f9</color>
+    <color name="color_assets_6">#ff5763</color>
+    <color name="color_assets_7">#767676</color>
+    <color name="color_assets_9">#515c6f</color>
+    <color name="color_assets_10">#6c63ff</color>
+    <color name="color_assets_11">#000</color>
+    <color name="_bg__dashboard_color">#ffffff</color>
+    <color name="rectangle_43_color">#1c3891</color>
+    <color name="food_color">#1c3891</color>
+    <color name="search_app_color">#989898</color>
+    <color name="rectangle_139_color">#000000</color>
+    <color name="ellipse_44_color">#555453</color>
+    <color name="rectangle_36_color">#f1f1f1</color>
 </resources>

@@ -28,4 +28,12 @@
     <string name="_1234">1234</string>
     <string name="resetting_password">Resetting Password</string>
     <string name="phone_number">Phone Number</string>
+    <string name="ek_img_content">ExportKit Image</string>
+    <string name="_11_04_pm_string">11:04 PM</string>
+    <string name="_26_string">26</string>
+    <string name="good_morning__shaker_string">Good morning, Shaker</string>
+    <string name="food_string">Food</string>
+    <string name="search_app_string">Search app</string>
+    <string name="slide_to_logout_string">Slide to logout</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

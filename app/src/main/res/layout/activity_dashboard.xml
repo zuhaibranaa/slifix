@@ -1,9 +1,309 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".app.dashboard">
+    android:background="@color/white"
+    tools:context=".LoginScreen"
+    android:id="@+id/dashboard">
+    <View
+        android:id="@+id/rectangle_"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_marginTop="-8dp"
+        android:background="@drawable/rectangle_43_shape" />
+    <TextView
+        android:id="@+id/good_morning__shaker"
+        android:layout_width="202dp"
+        android:layout_height="38dp"
+        android:layout_gravity="center_horizontal|center"
+        android:layout_marginStart="70dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="27dp"
+        android:fontFamily="@font/poppins"
+        android:gravity="center"
+        android:text="@string/good_morning__shaker_string"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+    <ImageView android:id="@+id/ellipse_1"
+        android:src="@drawable/ellipse_1"
+        android:contentDescription="ellipse_1"
+        android:layout_marginStart="306dp"
+        android:layout_marginTop="29dp"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_marginLeft="306dp" />
+    <RelativeLayout
+        android:id="@+id/MenuButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/path_"
+        android:layout_width="27dp"
+        android:layout_height="2.25dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:contentDescription="path_56"
+        android:src="@drawable/path_56"
+        android:layout_marginLeft="10dp" />
+    <ImageView
+        android:id="@+id/path_2"
+        android:layout_width="27dp"
+        android:layout_height="2.25dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="37dp"
+        android:contentDescription="path_57"
+        android:src="@drawable/path_57"
+        android:layout_marginLeft="10dp" />
+    <ImageView
+        android:id="@+id/path_3"
+        android:layout_width="27dp"
+        android:layout_height="2.25dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="44dp"
+        android:contentDescription="path_58"
+        android:src="@drawable/path_58"
+        android:layout_marginLeft="10dp" />
+    </RelativeLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/FoodCard"
+        android:clickable="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="34dp"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="310dp"
+        app:cardCornerRadius="6dp">
+
+        <View
+            android:layout_width="103dp"
+            android:layout_height="103dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/rectangle_47_shape" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="33dp"
+            android:layout_marginTop="68dp"
+            android:fontFamily="@font/poppins"
+            android:gravity="center"
+            android:text="@string/food_string"
+            android:textColor="@color/food_color"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="45.667907714844dp"
+            android:layout_height="45.667846679688dp"
+            android:layout_marginStart="31dp"
+            android:layout_marginLeft="31dp"
+            android:layout_marginTop="12dp"
+            android:contentDescription="path_61"
+            android:src="@drawable/path_61" />
+
+        <ImageView
+            android:id="@+id/path_62"
+            android:layout_width="wrap_content"
+            android:layout_height="25.363159179688dp"
+            android:layout_marginStart="41dp"
+            android:layout_marginLeft="41dp"
+            android:layout_marginTop="22dp"
+            android:contentDescription="path_62"
+            android:src="@drawable/path_62" />
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="79dp"
+            android:layout_marginLeft="79dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="path_63"
+            android:src="@drawable/path_63" />
+
+        <ImageView
+            android:layout_width="12.1435546875dp"
+            android:layout_height="55.479858398438dp"
+            android:layout_marginStart="79dp"
+            android:layout_marginLeft="79dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="path_63"
+            android:src="@drawable/path_63" />
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="path_64"
+            android:src="@drawable/path_64" />
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        app:cardCornerRadius="6dp"
+        android:id="@+id/ComingSoon"
+        android:layout_marginTop="310dp"
+        android:layout_marginStart="160dp"
+        android:layout_width="105dp"
+        android:layout_height="103dp"
+        android:layout_marginLeft="54dp">
+    <RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp">
+        <ImageView
+            android:id="@+id/path_65"
+            android:layout_width="8.2657470703125dp"
+            android:layout_height="10.44384765625dp"
+            android:layout_marginStart="47dp"
+            android:layout_marginTop="5dp"
+            android:contentDescription="path_65"
+            android:src="@drawable/path_65"
+            android:layout_marginLeft="48dp" />
+        <ImageView
+            android:id="@+id/path_66"
+            android:layout_width="7.3392333984375dp"
+            android:layout_height="10.444091796875dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="5dp"
+            android:contentDescription="path_66"
+            android:src="@drawable/path_66"
+            android:layout_marginLeft="16dp" />
+        <ImageView
+            android:id="@+id/path_67"
+            android:layout_width="7.247314453125dp"
+            android:layout_height="10.444213867188dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:contentDescription="path_67"
+            android:src="@drawable/path_67"
+            android:layout_marginLeft="7dp" />
+
+        <ImageView
+            android:id="@+id/path_68"
+            android:layout_width="63.931274414062dp"
+            android:layout_height="79.58447265625dp"
+            android:contentDescription="path_68"
+            android:src="@drawable/path_68" />
+        <ImageView
+            android:id="@+id/path_69"
+            android:layout_width="6.472900390625dp"
+            android:layout_height="9.0406494140625dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="48dp"
+            android:contentDescription="path_69"
+            android:src="@drawable/path_69"
+            android:layout_marginLeft="18dp" />
+        <ImageView
+            android:id="@+id/path_70"
+            android:layout_width="6.472900390625dp"
+            android:layout_height="9.0404052734375dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="48dp"
+            android:contentDescription="path_70"
+            android:src="@drawable/path_70"
+            android:layout_marginLeft="26dp" />
+        <ImageView
+            android:id="@+id/path_71"
+            android:layout_width="6.472900390625dp"
+            android:layout_height="9.0404052734375dp"
+            android:layout_marginStart="33dp"
+            android:layout_marginTop="48dp"
+            android:contentDescription="path_71"
+            android:src="@drawable/path_71"
+            android:layout_marginLeft="33dp" />
+        <ImageView
+            android:id="@+id/path_72"
+            android:layout_width="6.472900390625dp"
+            android:layout_height="9.0408935546875dp"
+            android:layout_marginStart="41dp"
+            android:layout_marginTop="48dp"
+            android:contentDescription="path_72"
+            android:src="@drawable/path_72"
+            android:layout_marginLeft="41dp" />
+</RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/createPass"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="31dp"
+        android:layout_marginLeft="31dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="270dp"
+        app:cardCornerRadius="6dp">
+
+        <androidx.appcompat.widget.SearchView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layoutDirection="rtl"
+            app:iconifiedByDefault="false" />
+
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        app:cardCornerRadius="6dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="95dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.smarteist.autoimageslider.SliderView
+            android:id="@+id/imageSlider"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            app:sliderAnimationDuration="600"
+            app:sliderAutoCycleDirection="back_and_forth"
+            app:sliderAutoCycleEnabled="true"
+            app:sliderIndicatorAnimationDuration="600"
+            app:sliderIndicatorGravity="center_horizontal|bottom"
+            app:sliderIndicatorMargin="15dp"
+            app:sliderIndicatorOrientation="horizontal"
+            app:sliderIndicatorPadding="3dp"
+            app:sliderIndicatorRadius="2dp"
+            app:sliderIndicatorSelectedColor="#5A5A5A"
+            app:sliderIndicatorUnselectedColor="#FFF"
+            app:sliderScrollTimeInSec="1"
+            app:sliderStartAutoCycle="true" />
+    </androidx.cardview.widget.CardView>
+    <com.ebanx.swipebtn.SwipeButton
+        android:id="@+id/createPass"
+        android:layout_width="343dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="23dp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="30dp"
+        app:button_background="@drawable/square"
+        app:button_bottom_padding="20dp"
+        app:button_image_disabled="@drawable/ic_baseline_arrow_forward_ios_24"
+        app:button_image_enabled="@drawable/ic_baseline_arrow_forward_ios_24"
+        app:button_image_height="60dp"
+        app:button_image_width="60dp"
+        app:button_left_padding="20dp"
+        app:button_right_padding="20dp"
+        app:button_top_padding="20dp"
+        app:has_activate_state="true"
+        app:initial_state="disabled"
+        app:inner_text="Slide To Logout"
+        app:inner_text_background="@drawable/bg"
+        app:inner_text_bottom_padding="18dp"
+        app:inner_text_color="@color/itc"
+        app:inner_text_size="18dp"
+        app:inner_text_top_padding="18dp" />
+</RelativeLayout>

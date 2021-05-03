@@ -39,6 +39,29 @@
         android:layout_marginLeft="140dp" />
 
     <EditText
+        android:id="@+id/number"
+        android:layout_width="300dp"
+        android:layout_height="52dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="46.5dp"
+        android:layout_marginEnd="46.5dp"
+        android:layout_marginBottom="370dp"
+        android:height="40dp"
+        android:autofillHints=""
+        android:background="@drawable/textbox"
+        android:fontFamily="@font/poppins"
+        android:gravity="center_horizontal|center_vertical"
+        android:hint="@string/num_hint"
+        android:inputType="phone"
+        android:longClickable="false"
+        android:padding="2dp"
+        android:textAlignment="textStart"
+        android:textSize="14sp"
+        tools:ignore="RtlCompat" />
+
+    <EditText
         android:id="@+id/input_pass"
         android:layout_width="300dp"
         android:layout_height="52dp"
@@ -62,6 +85,6 @@
         tools:ignore="RtlCompat" />
     <com.ebanx.swipebtn.SwipeButton android:id="@+id/createPass" android:layout_width="343dp" android:layout_height="wrap_content" app:inner_text="Slide To Login" app:inner_text_color="@color/itc" app:inner_text_size="18dp" app:inner_text_top_padding="18dp" app:inner_text_bottom_padding="18dp" app:inner_text_background="@drawable/bg" app:button_image_height="60dp" app:button_image_width="60dp" app:button_image_disabled="@drawable/ic_baseline_arrow_forward_ios_24" app:button_image_enabled="@drawable/ic_baseline_arrow_forward_ios_24" app:button_left_padding="20dp" app:button_right_padding="20dp" app:button_top_padding="20dp" app:button_bottom_padding="20dp" app:button_background="@drawable/square" app:initial_state="disabled" app:has_activate_state="true" android:layout_alignParentBottom="true" android:layout_marginBottom="200dp" android:layout_alignParentEnd="true" android:layout_marginEnd="24.5dp" android:layout_alignParentStart="true" android:layout_marginStart="24.5dp"/>
     <com.ebanx.swipebtn.SwipeButton android:id="@+id/signup" android:layout_width="343dp" android:layout_height="wrap_content" app:inner_text="Slide To signup" app:inner_text_color="@color/itc" app:inner_text_size="18dp" app:inner_text_top_padding="18dp" app:inner_text_bottom_padding="18dp" app:inner_text_background="@drawable/bg" app:button_image_height="60dp" app:button_image_width="60dp" app:button_image_disabled="@drawable/ic_baseline_arrow_forward_ios_24" app:button_image_enabled="@drawable/ic_baseline_arrow_forward_ios_24" app:button_left_padding="20dp" app:button_right_padding="20dp" app:button_top_padding="20dp" app:button_bottom_padding="20dp" app:button_background="@drawable/square" app:initial_state="disabled" app:has_activate_state="true" android:layout_alignParentBottom="true" android:layout_marginBottom="113dp" android:layout_alignParentEnd="true" android:layout_marginEnd="25dp" android:layout_alignParentStart="true" android:layout_marginStart="25dp"/>
-    <EditText android:layout_width="300dp" android:textAlignment="textStart" android:hint="@string/num_hint" android:height="40dp" android:textSize="14sp" android:layout_height="52dp" android:gravity="center_horizontal|center_vertical" android:longClickable="false" android:padding="2dp" android:background="@drawable/textbox" android:id="@+id/number" android:autofillHints="" android:inputType="phone" android:fontFamily="@font/poppins" android:layout_alignParentBottom="true" android:layout_marginBottom="370dp" android:layout_alignParentEnd="true" android:layout_marginEnd="46.5dp" android:layout_alignParentStart="true" android:layout_marginStart="46.5dp" tools:ignore="RtlCompat"/>
+
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:backgroundTint="@color/white" android:id="@+id/forgot" android:textColor="@color/app" android:textSize="19sp" android:text="@string/forgot" android:fontFamily="@font/poppins" android:layout_alignParentBottom="true" android:layout_marginBottom="27dp" android:layout_alignParentStart="true" android:layout_marginStart="20dp"/>
 </RelativeLayout>

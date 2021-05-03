@@ -1,7 +1,9 @@
 package com.slifix.slifix;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -22,7 +24,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-
 public class LoginScreen extends AppCompatActivity {
     TextView forgot;
     EditText number,pass;
@@ -33,6 +34,8 @@ public class LoginScreen extends AppCompatActivity {
     public StringRequest req;
     public JSONObject obj;
     public static boolean isForgot;
+    SharedPreferences prefs;
+    SharedPreferences.Editor edit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +57,7 @@ public class LoginScreen extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 Intent intent = new Intent(LoginScreen.this,ForgotPassword.class);
+                isForgot = true;
                 startActivity(intent);
                 return false;
             }
@@ -62,6 +66,7 @@ public class LoginScreen extends AppCompatActivity {
             @Override
             public void onActive() {
                 Intent intent = new Intent(LoginScreen.this,OTP_Reg.class);
+                isForgot = false;
                 startActivity(intent);
             }
         });
@@ -83,6 +88,10 @@ public class LoginScreen extends AppCompatActivity {
                 e.printStackTrace();
             }
             if (authToken != null){
+                prefs=this.getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
+                edit=prefs.edit();
+                edit.putString("token",authToken);
+                edit.commit();
                 Intent intent = new Intent(getApplicationContext(), dashboard.class);
                 startActivity(intent);
                 finish();

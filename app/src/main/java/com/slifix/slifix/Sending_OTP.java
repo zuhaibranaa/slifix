@@ -22,11 +22,13 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.slifix.slifix.ForgotPassword.number;
+import static com.slifix.slifix.LoginScreen.isForgot;
 import static com.slifix.slifix.OTP_Reg.mobile;
 
 public class Sending_OTP extends AppCompatActivity {
-    TextView tv, tv_9_Cancel,tv_10_SendOTP;
-    String Message,txt;
+    TextView tv,tv6, tv_9_Cancel,tv_10_SendOTP;
+    String Message,txt,url;
     RequestQueue queue;
     StringRequest req;
     int status;
@@ -37,11 +39,20 @@ public class Sending_OTP extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sending__o_t_p);
         tv = (TextView) findViewById(R.id.textView7);
+        tv6 = (TextView) findViewById(R.id.textView6);
         tv_9_Cancel = (TextView) findViewById(R.id.textView9);
         tv_10_SendOTP = (TextView) findViewById(R.id.textView10);
         Message= tv.getText().toString();
-        txt = Message+mobile;
-        mobile = "+"+mobile;
+        if (isForgot == true){
+            tv6.setText("Forgot");
+            txt = Message+number;
+            number = "+"+number;
+            url = "https://slifixfood.herokuapp.com/change_password/";
+        }else{
+            txt = Message+mobile;
+            mobile = "+"+mobile;
+            url = "https://slifixfood.herokuapp.com/reg/";
+        }
         tv.setText(txt);
         tv_9_Cancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,8 +68,6 @@ public class Sending_OTP extends AppCompatActivity {
         });
     }
     public void userSignUp() {
-
-        String url = "https://slifixfood.herokuapp.com/reg/";
         queue = VolleySingleton.getInstance(this).getRequestQueue();
         req = new StringRequest(Request.Method.POST, url, response -> {
             String jsonString =response ; //assign your JSON String here
@@ -88,7 +97,11 @@ public class Sending_OTP extends AppCompatActivity {
             @Override
             protected Map<String,String> getParams(){
                 Map<String,String> params = new HashMap<String,String>();
-                params.put("phone",mobile);
+                if (isForgot == true){
+                    params.put("phone",number);
+                }else{
+                    params.put("phone",mobile);
+                }
                 return params;
             }
             @Override

@@ -19,6 +19,8 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.slifix.slifix.ForgotPassword.number;
+import static com.slifix.slifix.LoginScreen.isForgot;
 import static com.slifix.slifix.OTP_Reg.mobile;
 
 public class enterOTP extends AppCompatActivity {
@@ -37,7 +39,6 @@ public class enterOTP extends AppCompatActivity {
         submit = (Button) findViewById(R.id.otpSubmit);
         otpField = (EditText) findViewById(R.id.otpField);
         otpText = (TextView) findViewById(R.id.otpText);
-//        mobile = "+"+mobile;
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,7 +66,6 @@ public class enterOTP extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                Toast.makeText(enterOTP.this, strJson, Toast.LENGTH_SHORT).show();
                 if (strJson != null){
                     Intent enterPass = new Intent(getApplicationContext(),createFirstTimePassword.class);
                     startActivity(enterPass);
@@ -83,7 +83,12 @@ public class enterOTP extends AppCompatActivity {
             @Override
             protected Map<String,String> getParams(){
                 Map<String,String> params = new HashMap<String,String>();
-                params.put("phone",mobile);
+                if(isForgot == true){
+                    params.put("phone",number);
+                    params.put("change","true");
+                }else{
+                    params.put("phone",mobile);
+                }
                 params.put("otp",otp);
                 return params;
             }
