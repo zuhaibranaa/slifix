@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="50dp"
+    android:layout_marginEnd="50dp"
+    app:cardCornerRadius="20dp">
+    <ImageView
+        android:layout_width="317dp"
+        android:layout_height="212dp"
+        android:src="@drawable/first_slice_of_fresh_margarita_pizza_925x"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="220dp"
+        android:textSize="18dp"
+        android:text="Ali Baba Restaurant"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12dp"
+        android:layout_marginTop="245dp"
+        android:layout_marginStart="7dp"
+        android:text="Minimum Rs.200"
+        android:layout_marginLeft="7dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="245dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginLeft="245dp"
+        android:text="Delivery Fee Rs.50"
+        android:textSize="12dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="245dp"
+        android:layout_marginStart="250dp"
+        android:text="1.5Km"
+        android:layout_marginLeft="250dp" />
+</androidx.cardview.widget.CardView>
+</RelativeLayout>

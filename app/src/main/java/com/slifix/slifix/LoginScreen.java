@@ -1,9 +1,14 @@
 package com.slifix.slifix;
 
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
+import android.accounts.AccountManagerCallback;
+import android.accounts.AccountManagerFuture;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -20,11 +25,15 @@ import com.slifix.slifix.app.dashboard;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
 
+import static android.provider.SyncStateContract.Columns.ACCOUNT_TYPE;
+
 
 public class LoginScreen extends AppCompatActivity {
+    AccountManager accountManager;
     TextView forgot;
     EditText number,pass;
     public static String n,p,t;
@@ -34,8 +43,6 @@ public class LoginScreen extends AppCompatActivity {
     public StringRequest req;
     public JSONObject obj;
     public static boolean isForgot;
-    SharedPreferences prefs;
-    SharedPreferences.Editor edit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +52,8 @@ public class LoginScreen extends AppCompatActivity {
         signup = (SwipeButton) findViewById(R.id.signup);
         login = (SwipeButton) findViewById(R.id.createPass);
         forgot = (TextView) findViewById(R.id.forgot);
+        accountManager = (AccountManager) getApplicationContext().getSystemService(ACCOUNT_SERVICE);
+
         login.setOnActiveListener(new OnActiveListener() {
             @Override
             public void onActive() {
@@ -88,10 +97,6 @@ public class LoginScreen extends AppCompatActivity {
                 e.printStackTrace();
             }
             if (authToken != null){
-                prefs=this.getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
-                edit=prefs.edit();
-                edit.putString("token",authToken);
-                edit.commit();
                 Intent intent = new Intent(getApplicationContext(), dashboard.class);
                 startActivity(intent);
                 finish();

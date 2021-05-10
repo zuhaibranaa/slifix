@@ -85,7 +85,12 @@ int status;
                 }
                 if (status == 200){
                     Toast.makeText(createFirstTimePassword.this, "Passwords Saved", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(), dashboard.class);
+                    Intent intent;
+                    if (!isForgot) {
+                        intent = new Intent(getApplicationContext(), SetName.class);
+                    }else{
+                        intent =  new Intent(getApplicationContext(), dashboard.class);
+                    }
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                 }else{
