@@ -32,6 +32,7 @@ public class createFirstTimePassword extends AppCompatActivity {
 SwipeButton btn;
 EditText pass,confirmpass;
 JSONObject res;
+public static String auth;
 RequestQueue queue;
 StringRequest req;
     String v1;
@@ -63,8 +64,6 @@ int status;
                 }
             });
         }
-
-
     }
 
     private void createPass(String pwd) {
@@ -117,7 +116,7 @@ int status;
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> params = new HashMap<String, String>();
-                String auth = "Bearer " + strJson; // token you will get after successful login
+                auth = "Bearer " + strJson;
                 params.put("Authorization", auth);
                 return params;
             }

@@ -23,6 +23,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.slifix.slifix.LoginScreen.authToken;
+import static com.slifix.slifix.LoginScreen.n;
+import static com.slifix.slifix.createFirstTimePassword.auth;
 import static java.lang.Integer.parseInt;
 
 public class dashboard extends AppCompatActivity {
@@ -31,7 +34,7 @@ public class dashboard extends AppCompatActivity {
     public RequestQueue queue;
     public StringRequest req;
     public JSONObject obj;
-    String uName;
+    String uName,gndr,categories;
     private static final SimpleDateFormat sdf1 = new SimpleDateFormat("HH");
     Date date;
     @Override
@@ -45,13 +48,13 @@ public class dashboard extends AppCompatActivity {
         date = new Date();
         int time = parseInt(sdf1.format(date.getTime()));
         if (time >= 0 && time <= 11) {
-            txt.setText("Good Morning ");
+            txt.setText("Good Morning " + uName);
         }else if (time >= 11 && time <= 18){
-            txt.setText("Good Afternoon ");
+            txt.setText("Good Afternoon " + uName);
         }else if (time >= 18 && time <= 22){
-            txt.setText("Good Evening ");
+            txt.setText("Good Evening " + uName);
         }else {
-            txt.setText("Good Night ");
+            txt.setText("Good Night " + uName);
         }
         logout.setOnActiveListener(new OnActiveListener() {
             @Override
@@ -71,44 +74,49 @@ public class dashboard extends AppCompatActivity {
     }
 
     void getUData(){
-        String url = "https://slifixfood.herokuapp.com/get-categories/";
-        queue = VolleySingleton.getInstance(this).getRequestQueue();
-        req = new StringRequest(Request.Method.POST, url, response -> {
-            String jsonString =response ; //assign your JSON String here
-            try {
-                obj = new JSONObject(jsonString);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            try {
-                uName = obj.getString("token");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            if (uName != null){
-                Intent intent = new Intent(getApplicationContext(), dashboard.class);
-                startActivity(intent);
-                finish();
-            }else {
-                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
-            }
-        }, error -> {
-        }){
-            @Override
-            protected Map<String,String> getParams(){
-                Map<String,String> params = new HashMap<String,String>();
-                params.put("phone",LoginScreen.n);
-                return params;
-            }
-            @Override
-            public Map<String,String> getHeaders() {
-                Map<String,String> params = new HashMap<String,String>();
-                params.put("Content-Type","application/x-www-form-urlencoded");
-                return params;
-            }
-        };
-        queue.add(req);
+        String url = "http://slifixfood.herokuapp.com/get-categories/";
+            queue = VolleySingleton.getInstance(this).getRequestQueue();
+            req = new StringRequest(Request.Method.POST, url, response -> {
+                String jsonString =response ; //assign your JSON String here
+                try {
+                    obj = new JSONObject(jsonString);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    uName = obj.getString("token");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                if (uName != null){
+                    Toast.makeText(this,"User Name Acquired", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(this, response, Toast.LENGTH_SHORT).show();
+                }
+            }, error -> {
+            }){
+                @Override
+                protected Map<String,String> getParams(){
+                    Map<String,String> params = new HashMap<String,String>();
+                    params.put("phone",n);
+                    Toast.makeText(dashboard.this, "params are sent", Toast.LENGTH_SHORT).show();
+                    return params;
+                }
+                @Override
+                public Map<String,String> getHeaders() {
+                    HashMap<String, String> params = new HashMap<String, String>();
+                    if (authToken != null) {
+                        String auth = "Bearer " + authToken; // token you will get after successful login
+                        params.put("Authorization", auth);
+                    }else{
+                        params.put("Authorization", auth);
+                    }
+
+                    return params;
+                }
+            };
+            queue.add(req);
+        }
+
+
     }
-
-
-}

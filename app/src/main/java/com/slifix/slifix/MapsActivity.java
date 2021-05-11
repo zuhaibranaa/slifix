@@ -47,6 +47,7 @@ public class MapsActivity extends AppCompatActivity {
     ImageButton geolocate;
     Button search;
     LatLng latLng;
+    String lati,longi;
     Geocoder geocoder;
     EditText sp;
     @Override
@@ -80,10 +81,14 @@ public class MapsActivity extends AppCompatActivity {
                 Double lg = Double.valueOf(list.get(0).getLongitude());
                 Double lt = Double.valueOf(list.get(0).getLatitude());
                 latLng = new LatLng(lt, lg);
+                lati = String.valueOf(latLng.latitude);
+                longi = String.valueOf(latLng.longitude);
                 options = new MarkerOptions().position(latLng).title(list.get(0).getAddressLine(0));
                 googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
                 googleMap.addMarker(options);
                 Toast.makeText(this, "Location Found", Toast.LENGTH_SHORT).show();
+                Intent it = new Intent(getApplicationContext(),FoodDashboard.class);
+                startActivity(it);
             }
         } catch (IOException e) {
             e.printStackTrace();

@@ -23,7 +23,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="9dp"
             android:src="@drawable/group_2421"/>
 
     </androidx.cardview.widget.CardView>

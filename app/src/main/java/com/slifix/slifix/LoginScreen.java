@@ -38,7 +38,7 @@ public class LoginScreen extends AppCompatActivity {
     EditText number,pass;
     public static String n,p,t;
     SwipeButton login,signup;
-    public String authToken;
+    public static String authToken;
     public RequestQueue queue;
     public StringRequest req;
     public JSONObject obj;
