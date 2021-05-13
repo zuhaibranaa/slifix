@@ -6,6 +6,8 @@ import android.view.WindowManager;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.slifix.slifix.login.LoginScreen;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -16,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(MainActivity.this,LoginScreen.class);
+                Intent intent = new Intent(MainActivity.this, LoginScreen.class);
                 startActivity(intent);
                 finish();
             }

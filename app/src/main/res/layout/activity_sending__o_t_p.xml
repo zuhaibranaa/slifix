@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:screenOrientation="portrait"
     android:background="@color/white"
-    tools:context=".Sending_OTP">
+    tools:context=".login.Sending_OTP">
 
     <ImageView
         android:layout_width="match_parent"
