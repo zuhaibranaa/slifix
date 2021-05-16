@@ -9,33 +9,35 @@
     tools:context=".login.createFirstTimePassword">
 
     <com.ebanx.swipebtn.SwipeButton
-        android:id="@+id/createftp"
+        android:id="@+id/changeNewPassword"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        app:inner_text="Slide To Create"
-        app:inner_text_color="@color/itc"
-        app:inner_text_size="16sp"
-        app:inner_text_top_padding="18dp"
-        app:inner_text_bottom_padding="18dp"
-        app:inner_text_background="@drawable/bg"
-        app:button_image_height="60dp"
-        app:button_image_width="60dp"
+        app:button_background="@drawable/square"
+        app:button_bottom_padding="20dp"
         app:button_image_disabled="@drawable/ic_baseline_arrow_forward_ios_24"
         app:button_image_enabled="@drawable/ic_baseline_arrow_forward_ios_24"
+        app:button_image_height="60dp"
+        app:button_image_width="60dp"
         app:button_left_padding="20dp"
         app:button_right_padding="20dp"
         app:button_top_padding="20dp"
-        app:button_bottom_padding="20dp"
-        app:button_background="@drawable/square"
-        app:initial_state="disabled"
         app:has_activate_state="true"
+        app:initial_state="disabled"
+        app:inner_text="Slide To Update Password"
+        app:inner_text_background="@drawable/bg"
+        app:inner_text_bottom_padding="18dp"
+        app:inner_text_color="@color/itc"
+        app:inner_text_size="16sp"
+        app:inner_text_top_padding="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/confirmPass"
-        app:layout_constraintVertical_bias="0.447"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/changePass"
+        app:layout_constraintVertical_bias="0.834" />
 
     <EditText
-        android:id="@+id/newpassword"
+        android:id="@+id/changePass"
         android:layout_width="302dp"
         android:layout_height="55dp"
         android:background="@drawable/textboxround"
@@ -52,7 +54,7 @@
         app:layout_constraintVertical_bias="0.194" />
 
     <EditText
-        android:id="@+id/confirmPass"
+        android:id="@+id/confirmChangePass"
         android:layout_width="302dp"
         android:layout_height="55dp"
         android:background="@drawable/textboxround"
@@ -80,7 +82,7 @@
         android:contentDescription="@string/todo"
         tools:ignore="ContentDescription"/>
     <TextView
-        android:text="@string/create_new_password"
+        android:text="Change Password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" android:id="@+id/textView11"
         app:layout_constraintTop_toBottomOf="@+id/imageView5"

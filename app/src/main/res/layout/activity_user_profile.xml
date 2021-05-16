@@ -1,0 +1,227 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <View
+                android:background="@drawable/rectangle_2189_shape"
+                android:layout_width="match_parent"
+                android:layout_height="66dp" />
+            <TextView
+                android:fontFamily="Segoe UI"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:textColor="@color/setting__color"
+                android:layout_marginLeft="150dp"
+                android:layout_marginRight="150dp"
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/setting__string"
+                />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/account"
+                android:layout_marginTop="79dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <ImageView
+                    android:src="@drawable/icon_ionic_ios_person"
+                    android:contentDescription="icon_ionic_ios_person"
+                    android:layout_marginStart="21dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="7dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="21dp" />
+                <TextView
+                    android:fontFamily="Segoe UI"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="@color/change_password__color"
+                    android:layout_marginLeft="90dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/account__string"
+                    />
+                <ImageView
+                    android:src="@drawable/icon_awesome_chevron_circle_right"
+                    android:contentDescription="icon_awesome_chevron_circle_right"
+                    android:layout_marginStart="295dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="295dp"
+                    />
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="152dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                    <ImageView
+                        android:src="@drawable/path_1077"
+                        android:contentDescription="path_1077"
+                        android:layout_marginStart="35dp"
+                        android:layout_marginTop="39dp"
+                        android:layout_marginBottom="9dp"
+                        android:layout_width="6.7711181640625dp"
+                        android:layout_height="3.7265625dp"
+                        android:layout_marginLeft="35dp" />
+                    <ImageView
+                        android:src="@drawable/path_1078"
+                        android:contentDescription="path_1078"
+                        android:layout_marginStart="21dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="21dp" />
+                    <TextView
+                        android:fontFamily="Segoe UI"
+                        android:textStyle="bold"
+                        android:textSize="19sp"
+                        android:textColor="@color/change_password__color"
+                        android:layout_marginLeft="90dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/notifications__string"
+                        />
+                    <Switch
+                    android:id="@+id/notificationSwitch"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginStart="289dp"
+                    android:layout_marginLeft="295dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:background="@color/app"/>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/change_password"
+                android:layout_marginTop="221dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <ImageView
+                    android:src="@drawable/icon_awesome_lock"
+                    android:contentDescription="icon_awesome_lock"
+                    android:layout_marginStart="21dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="7dp"
+                    android:layout_width="31.5dp"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="15dp" />
+                <TextView
+                    android:fontFamily="Segoe UI"
+                    android:textStyle="bold"
+                    android:textSize="19sp"
+                    android:textColor="@color/change_password__color"
+                    android:layout_marginLeft="90dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/change_password__string"
+                    />
+                <ImageView
+                    android:src="@drawable/icon_awesome_arrow_circle_right"
+                    android:contentDescription="icon_awesome_arrow_circle_right"
+                    android:layout_marginLeft="295dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Privacy"
+                android:layout_marginTop="295.25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <ImageView
+                    android:src="@drawable/icon_ionic_md_checkmark_circle_outline"
+                    android:contentDescription="icon_ionic_md_checkmark_circle_outline"
+                    android:layout_marginStart="21dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="7dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="21dp" />
+
+                <TextView
+                    android:fontFamily="Segoe UI"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="@color/change_password__color"
+                    android:layout_marginLeft="90dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/privacy___about___string"
+                    />
+
+                <ImageView
+                    android:src="@drawable/icon_awesome_chevron_circle_right_ek1"
+                    android:contentDescription="icon_awesome_chevron_circle_right_ek1"
+                    android:layout_marginLeft="295dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/requestFeature"
+                android:layout_marginTop="370dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <ImageView
+                    android:src="@drawable/icon_material_branding_watermark"
+                    android:contentDescription="icon_material_branding_watermark"
+                    android:layout_marginStart="21dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="7dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="21dp" />
+
+                <TextView
+                    android:fontFamily="Segoe UI"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="@color/change_password__color"
+                    android:layout_marginLeft="90dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/request_feature_string"
+                    />
+
+                <ImageView
+                    android:src="@drawable/icon_awesome_chevron_circle_right_ek2"
+                    android:contentDescription="icon_awesome_chevron_circle_right_ek2"
+                    android:layout_marginStart="295dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="295dp" />
+
+            </androidx.cardview.widget.CardView>
+            <ImageView
+                android:id="@+id/upbckbtn"
+                    android:src="@drawable/icon_ionic_ios_arrow_back"
+                    android:contentDescription="icon_ionic_ios_arrow_back"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_width="11.1044921875dp"
+                    android:layout_height="19.423583984375dp"
+                    android:layout_marginLeft="25dp" />
+        </RelativeLayout>
+</LinearLayout>

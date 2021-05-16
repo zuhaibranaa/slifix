@@ -3,6 +3,7 @@ package com.slifix.slifix;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,24 +33,32 @@ public class dashboard extends AppCompatActivity {
     public RequestQueue queue;
     public StringRequest req;
     public JSONObject obj;
+    RelativeLayout menu;
     int time;
-    public static String uName,gndr,categories;
+    public static String gndr,categories;
     private static final SimpleDateFormat sdf1 = new SimpleDateFormat("HH");
     Date date;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-        if (DataManager.getAuth() == null){
+        if (DataManager.getAuthToken() == null){
             Toast.makeText(this, "Please Login First", Toast.LENGTH_SHORT).show();
             finish();
         }
         CardView foodIco = (CardView) findViewById(R.id.FoodCard);
         logout = (SwipeButton) findViewById(R.id.logout);
-        txt = (TextView) findViewById(R.id.good_morning__shaker);
+        menu = findViewById(R.id.MenuButton);
+        txt = findViewById(R.id.good_morning__shaker);
         getUData();
         date = new Date();
         time = parseInt(sdf1.format(date.getTime()));
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),UserProfile.class));
+            }
+        });
         logout.setOnActiveListener(new OnActiveListener() {
             @Override
             public void onActive() {
@@ -80,21 +89,21 @@ public class dashboard extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }try {
-                    uName = obj.getString("username");
+                    DataManager.setUserName(obj.getString("username"));
                     gndr = obj.getString("gender");
                     categories = obj.getString("Category");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                if (uName != null){
+                if (DataManager.getUserName() != null){
                     if (time >= 0 && time <= 11) {
-                        txt.setText("Good Morning " + uName);
+                        txt.setText("Good Morning " + DataManager.getUserName());
                     }else if (time >= 11 && time <= 18){
-                        txt.setText("Good Afternoon " + uName);
+                        txt.setText("Good Afternoon " + DataManager.getUserName());
                     }else if (time >= 18 && time <= 22){
-                        txt.setText("Good Evening " + uName);
+                        txt.setText("Good Evening " + DataManager.getUserName());
                     }else {
-                        txt.setText("Good Night " + uName);
+                        txt.setText("Good Night " + DataManager.getUserName());
                     }
                 }else{
                     Toast.makeText(getApplicationContext(), "Error Occured", Toast.LENGTH_SHORT).show();
@@ -115,7 +124,7 @@ public class dashboard extends AppCompatActivity {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> params = new HashMap<String, String>();
-                params.put("Authorization", "Bearer "+DataManager.getAuth());
+                params.put("Authorization", "Bearer "+DataManager.getAuthToken());
                 return params;
             }
         };

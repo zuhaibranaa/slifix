@@ -2,32 +2,41 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_marginStart="10dp"
+    android:layout_marginTop="3dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginLeft="10dp">
 <androidx.cardview.widget.CardView
+    android:id="@+id/singleRestaurant"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="50dp"
-    android:layout_marginEnd="50dp"
+    android:layout_marginTop="7dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
     app:cardCornerRadius="20dp">
     <ImageView
-        android:layout_width="317dp"
-        android:layout_height="212dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:src="@drawable/first_slice_of_fresh_margarita_pizza_925x"/>
     <TextView
+        android:id="@+id/restaurantTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="218dp"
+        android:layout_marginLeft="09dp"
         android:textSize="18dp"
         android:text="Ali Baba Restaurant"/>
     <TextView
+        android:id="@+id/restaurnatMinOrder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="12dp"
         android:layout_marginTop="245dp"
-        android:layout_marginStart="7dp"
+        android:layout_marginStart="10dp"
         android:text="Minimum Rs.200"
         android:layout_marginLeft="7dp" />
     <TextView
+        android:id="@+id/restaurantDeliveryFee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="245dp"
@@ -36,11 +45,12 @@
         android:text="Delivery Fee Rs.50"
         android:textSize="12dp"/>
     <TextView
+        android:id="@+id/restaurantDistance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="245dp"
         android:layout_marginStart="250dp"
-        android:text="1.5Km"
+        android:text="1.5m"
         android:layout_marginLeft="250dp" />
 </androidx.cardview.widget.CardView>
 </RelativeLayout>

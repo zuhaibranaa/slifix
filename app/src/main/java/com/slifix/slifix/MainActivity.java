@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 Intent intent = new Intent(MainActivity.this, LoginScreen.class);
+//                Intent intent = new Intent(MainActivity.this, UserProfile.class);
                 startActivity(intent);
                 finish();
             }

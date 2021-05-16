@@ -41,8 +41,28 @@
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
+    <string name="setting__string">Setting</string>
+    <string name="change_password__string">Change Password</string>
+    <string name="notifications__string">Notifications</string>
+    <string name="account__string">Account</string>
+    <string name="privacy___about___string">Privacy &amp; About </string>
+    <string name="request_feature_string">Request feature</string>
     <string name="previous">Previous</string>
+    <string name="__91_98765_43210_string">+91 98765 43210</string>
+    <string name="name_string">Name</string>
+    <string name="geneder_string">Geneder</string>
+    <string name="______male_string">     Male</string>
+    <string name="i_accept_slifix_s_term_and_conditions___string">I accept Slifixs Term and Conditions </string>
+    <string name="read_more_string">Read more</string>
 
+
+    <string name="name__string">Name</string>
+    <string name="shaker_muhammed___string">Shaker Muhammed </string>
+    <string name="phone___string">Phone </string>
+    <string name="__8804658541155__string">+8804658541155</string>
+    <string name="email__string">Email</string>
+    <string name="slifix_gmail_com__string">slifix@gmail.com</string>
+    <string name="_save__string">Save</string>
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string-array name="Genders">
@@ -50,4 +70,5 @@
         <item>Female</item>
         <item>Others</item>
     </string-array>
+    <string name="title_activity_restaurant_food_menu">RestaurantFoodMenu</string>
 </resources>

@@ -21,12 +21,14 @@
             android:background="@drawable/fresh"
             />
         <ImageView
+            android:id="@+id/menuImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="9dp"
             android:src="@drawable/group_2421"/>
 
     </androidx.cardview.widget.CardView>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,17 +37,16 @@
         android:textSize="20sp"
         android:textAlignment="center"
         android:fontFamily="@font/open_sans_bold"
-        android:text="Category"
+        android:text="All Restaurants"
         android:gravity="center_horizontal"
         android:layout_marginLeft="0dp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/smallItems"
+        android:id="@+id/restaurants"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="250dp"
-        android:scrollbars="horizontal" />
-
+        android:layout_marginTop="260dp"
+        android:scrollbars="none" />
 </RelativeLayout>

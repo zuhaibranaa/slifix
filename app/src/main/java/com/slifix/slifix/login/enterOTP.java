@@ -61,7 +61,7 @@ public class enterOTP extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                if (DataManager.getAuth() != null){
+                if (DataManager.getAuthToken() != null){
                     Intent enterPass = new Intent(getApplicationContext(),createFirstTimePassword.class);
                     startActivity(enterPass);
                 }else{

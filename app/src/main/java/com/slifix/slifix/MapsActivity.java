@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -13,6 +14,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.StringRequest;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -23,13 +28,21 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.slifix.slifix.app.VolleySingleton;
+import com.slifix.slifix.login.LoginScreen;
 
 import android.location.Address;
 import android.location.Geocoder;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 public class MapsActivity extends AppCompatActivity {
     SupportMapFragment supportMapFragment;
@@ -48,7 +61,7 @@ public class MapsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_maps);
         supportMapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
-        if (DataManager.getAuth() == null){
+        if (DataManager.getAuthToken() == null){
             Toast.makeText(this, "Please Login First", Toast.LENGTH_SHORT).show();
             finish();
         }
@@ -82,9 +95,10 @@ public class MapsActivity extends AppCompatActivity {
             public void onSuccess(Location location) {
                 if (location != null) {
                     supportMapFragment.getMapAsync(new OnMapReadyCallback() {
+                        @SuppressLint("MissingPermission")
                         @Override
                         public void onMapReady(@NonNull GoogleMap googleMap) {
-
+                            googleMap.setMyLocationEnabled(true);
                             setMapLongClick(googleMap);
                             Toast.makeText(MapsActivity.this, "Long Click On A Place To Find Data Related To That Place", Toast.LENGTH_SHORT).show();
                             search.setOnClickListener(new View.OnClickListener() {
@@ -156,4 +170,5 @@ public class MapsActivity extends AppCompatActivity {
             }
         });
     }
+
 }

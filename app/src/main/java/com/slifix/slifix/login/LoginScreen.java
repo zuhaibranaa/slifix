@@ -1,6 +1,7 @@
 package com.slifix.slifix.login;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -27,9 +28,9 @@ public class LoginScreen extends AppCompatActivity {
     EditText number,pass;
     public static String p,t;
     SwipeButton login,signup;
-    public RequestQueue queue;
-    public StringRequest req;
-    public JSONObject obj;
+    JSONObject obj;
+    StringRequest req;
+    RequestQueue queue;
     public static boolean isForgot;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +41,7 @@ public class LoginScreen extends AppCompatActivity {
         signup = (SwipeButton) findViewById(R.id.signup);
         login = (SwipeButton) findViewById(R.id.createPass);
         forgot = (TextView) findViewById(R.id.forgot);
-        if (!(DataManager.getAuth() == null)){
+        if (DataManager.getAuthToken() != null){
             Intent it = new Intent(getApplicationContext(),dashboard.class);
             startActivity(it);
         }
@@ -73,7 +74,7 @@ public class LoginScreen extends AppCompatActivity {
     }
     void login(){
         String url = "https://slifixfood.herokuapp.com/login/";
-        queue = VolleySingleton.getInstance(this).getRequestQueue();
+        queue = VolleySingleton.getInstance(getApplicationContext()).getRequestQueue();
         req = new StringRequest(Request.Method.POST, url, response -> {
             String jsonString =response ; //assign your JSON String here
             try {
@@ -86,7 +87,7 @@ public class LoginScreen extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            if (DataManager.getAuth() != null){
+            if (DataManager.getAuthToken() != null){
                 Intent intent = new Intent(getApplicationContext(), dashboard.class);
                 finish();
                 startActivity(intent);
@@ -111,4 +112,5 @@ public class LoginScreen extends AppCompatActivity {
         };
         queue.add(req);
     }
+
 }

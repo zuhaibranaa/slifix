@@ -104,7 +104,7 @@ String gndr,nme;
                 @Override
                 public Map<String, String> getHeaders() throws AuthFailureError {
                     HashMap<String, String> params = new HashMap<String, String>();
-                    params.put("Authorization", "Bearer " + DataManager.getAuth());
+                    params.put("Authorization", "Bearer " + DataManager.getAuthToken());
                     return params;
                 }
             };

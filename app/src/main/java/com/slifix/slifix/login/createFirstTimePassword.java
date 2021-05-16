@@ -40,7 +40,7 @@ int status;
         pass = (EditText) findViewById(R.id.newpassword);
         confirmpass = (EditText) findViewById(R.id.confirmPass);
 
-        if (DataManager.getAuth() == null){
+        if (DataManager.getAuthToken() == null){
             Toast.makeText(this, "User Not Authenticated", Toast.LENGTH_SHORT).show();
             finish();
         }else{
@@ -106,7 +106,7 @@ int status;
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> params = new HashMap<String, String>();
-                params.put("Authorization", "Bearer " +DataManager.getAuth());
+                params.put("Authorization", "Bearer " +DataManager.getAuthToken());
                 return params;
             }
         };
