@@ -4,6 +4,16 @@ public class DataManager {
     private static String phoneNumber;
     private static String authToken;
     private static String userName;
+    private static String activeRestaurantId;
+
+
+    public static String getActiveRestaurantId() {
+        return activeRestaurantId;
+    }
+
+    public static void setActiveRestaurantId(String activeRestaurantId) {
+        DataManager.activeRestaurantId = activeRestaurantId;
+    }
 
     public static String getUserEmail() {
         return userEmail;

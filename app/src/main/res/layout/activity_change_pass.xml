@@ -23,7 +23,7 @@
         app:button_top_padding="20dp"
         app:has_activate_state="true"
         app:initial_state="disabled"
-        app:inner_text="Slide To Update Password"
+        app:inner_text="Slide To Change Password"
         app:inner_text_background="@drawable/bg"
         app:inner_text_bottom_padding="18dp"
         app:inner_text_color="@color/itc"

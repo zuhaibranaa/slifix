@@ -2,7 +2,6 @@ package com.slifix.slifix;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -26,7 +25,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RestaurantFoodMenu extends AppCompatActivity {
+public class ChangeUsernameEmail extends AppCompatActivity {
     Button btnSave;
     EditText name,email;
     TextView phone;
@@ -38,12 +37,13 @@ public class RestaurantFoodMenu extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_restaurant_food_menu);
+        setContentView(R.layout.activity_change_username_email);
         btnSave = findViewById(R.id._save_);
         name = findViewById(R.id.shaker_muhammed__);
         email = findViewById(R.id.slifix_gmail_com_);
         phone = findViewById(R.id.numString);
         backBtn = findViewById(R.id.icon_ionic_ios_arrow_back);
+        SaveUserData();
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,12 +67,12 @@ public class RestaurantFoodMenu extends AppCompatActivity {
     private void changeUserData() {
             String url = "https://slifixfood.herokuapp.com/edit-profile/";
             queue = VolleySingleton.getInstance(this).getRequestQueue();
-            req = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            req = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    Toast.makeText(RestaurantFoodMenu.this, response, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChangeUsernameEmail.this, response, Toast.LENGTH_SHORT).show();
                     if (Integer.parseInt(response) == 200){
-                        Toast.makeText(RestaurantFoodMenu.this, "Saved", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ChangeUsernameEmail.this, "Saved", Toast.LENGTH_SHORT).show();
                     }
                 }
             }, new Response.ErrorListener() {
@@ -98,4 +98,41 @@ public class RestaurantFoodMenu extends AppCompatActivity {
             };
             queue.add(req);
     }
+    void SaveUserData(){
+        String url = "https://slifixfood.herokuapp.com/profile-Details/";
+        queue = VolleySingleton.getInstance(this).getRequestQueue();
+        Toast.makeText(this, "Save User Data", Toast.LENGTH_SHORT).show();
+        req = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                String jsonString =response ;
+                try {
+                    obj = new JSONObject(jsonString);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(ChangeUsernameEmail.this, String.valueOf(error), Toast.LENGTH_SHORT).show();
+            }
+        }){
+            @Override
+            protected Map<String,String> getParams(){
+                Map<String,String> params = new HashMap<String,String>();
+                params.put("phone", DataManager.getPhoneNumber());
+                return params;
+            }
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> params = new HashMap<String, String>();
+                params.put("Authorization", "Bearer "+DataManager.getAuthToken());
+                return params;
+            }
+        };
+        queue.add(req);
+    }
+
 }

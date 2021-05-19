@@ -49,7 +49,7 @@ Switch notifications;
         account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),RestaurantFoodMenu.class));
+                startActivity(new Intent(getApplicationContext(), ChangeUsernameEmail.class));
             }
         });
         changePassword.setOnClickListener(new View.OnClickListener() {

@@ -1,21 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="?android:listPreferredItemHeight"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="7dp"
-        android:background="#707070">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Small Shami Burger"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@android:drawable/ic_menu_set_as"/>
-    </androidx.cardview.widget.CardView>
 
+        <TextView
+            android:id="@+id/menuItemSelectorCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:textSize="20dp"
+            android:layout_marginLeft="20dp"
+            android:text="Burger"
+            />
+
+
+        <TextView
+            android:id="@+id/menuItemSelectorName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:textSize="18sp"
+            android:layout_marginLeft="20dp"
+            android:text="Burger"
+            />
+
+
+        <TextView
+            android:id="@+id/menuItemSelectorValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="250dp"
+            android:text="Rs.120"/>
 </RelativeLayout>

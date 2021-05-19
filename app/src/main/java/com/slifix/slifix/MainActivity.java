@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 Intent intent = new Intent(MainActivity.this, LoginScreen.class);
-//                Intent intent = new Intent(MainActivity.this, UserProfile.class);
+//                Intent intent = new Intent(MainActivity.this, hotelDetails.class);
                 startActivity(intent);
                 finish();
             }

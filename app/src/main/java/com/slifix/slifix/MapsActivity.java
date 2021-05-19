@@ -163,8 +163,8 @@ public class MapsActivity extends AppCompatActivity {
                         .position(latLng)
                         .title("Selected Location")
                         .snippet(snippet));
-                longi = String.valueOf(latLng.longitude);
-                lati = String.valueOf(latLng.latitude);
+                DataManager.setUserLongitude (String.valueOf(latLng.longitude));
+                DataManager.setUserLatitude (String.valueOf(latLng.latitude));
                 Intent it = new Intent(getApplicationContext(), FoodDashboard.class);
                 startActivity(it);
             }

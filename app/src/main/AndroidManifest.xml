@@ -16,9 +16,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Slifix">
-        <activity android:name=".ChangePass"></activity>
+        <activity android:name=".hotelDetails"></activity>
+        <activity android:name=".ChangePass" />
         <activity android:name=".UserProfile" />
-        <activity android:name=".RestaurantFoodMenu" />
+        <activity android:name=".ChangeUsernameEmail" />
         <activity
             android:name=".login.SetName"
             android:label="@string/title_activity_set_name"

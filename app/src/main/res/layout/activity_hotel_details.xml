@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".hotelDetails">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/hoteldetailsbckbtn"
+            android:layout_margin="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@color/app"/>
+            <ImageView
+                android:src="@drawable/ic_baseline_arrow_back_ios_24"
+                android:contentDescription="icon_ionic_ios_arrow_back"
+                android:layout_margin="5dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+        </androidx.cardview.widget.CardView>
+        <ImageView
+            android:id="@+id/sasasdasd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/first_slice_of_fresh_margarita_pizza_925x"/>
+        <TextView
+            android:id="@+id/restaurantName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sasasdasd"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="61dp"
+            android:layout_marginRight="61dp"
+            android:gravity="center"
+            android:text=""
+            android:textSize="18dp"
+            android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/homeBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="210dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/ic_baseline_home_24" />
+    <androidx.cardview.widget.CardView
+        android:layout_width="380dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="255dp">
+        <ImageView
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_width="30dp"
+            android:src="@drawable/ic_baseline_access_time_24"
+            android:layout_height="30dp"/>
+        <TextView
+            android:id="@+id/restaurantActiveStatus"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/app"
+            android:textStyle="bold"
+            android:text="Status"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="120dp" />
+        <TextView
+            android:id="@+id/statusValue"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/app"
+            android:text="Time"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="190dp" />
+        <ImageView
+            android:layout_marginTop="55dp"
+            android:layout_marginLeft="15dp"
+            android:layout_width="30dp"
+            android:src="@drawable/ic_baseline_directions_bike_24"
+            android:layout_height="30dp"/>
+        <TextView
+            android:id="@+id/deliveryTime"
+            android:layout_width="wrap_content"
+            android:text="Delivery Time "
+            android:textStyle="bold"
+            android:textColor="@color/app"
+            android:layout_marginTop="55dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="120dp" />
+
+        <TextView
+            android:id="@+id/deliveryFee"
+            android:layout_width="wrap_content"
+            android:text="Delivery Fee "
+            android:textStyle="bold"
+            android:textColor="@color/app"
+            android:layout_marginTop="55dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="190dp" />
+
+    </androidx.cardview.widget.CardView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="345dp"
+        android:textStyle="bold"
+        android:text="Hotel Menu Items"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/restaurantMenuItems"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="370dp"/>
+</RelativeLayout>

@@ -115,17 +115,10 @@ public class FoodDashboard extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
                 recyclerViewHotels.setLayoutManager(new LinearLayoutManager(this));
-                try {
-                    adapterHotels = new AdapterHotels(restaurant);
-                }catch (Exception e){
-                    Log.e("Exception", String.valueOf(e));
-                }
-
+                adapterHotels = new AdapterHotels(restaurant,getApplicationContext());
                 recyclerViewHotels.setAdapter(adapterHotels);
             }
-            Toast.makeText(FoodDashboard.this, String.valueOf(response.length()), Toast.LENGTH_SHORT).show();
         }, error -> {
             error.printStackTrace();
             Toast.makeText(FoodDashboard.this, error.toString(), Toast.LENGTH_SHORT).show();
