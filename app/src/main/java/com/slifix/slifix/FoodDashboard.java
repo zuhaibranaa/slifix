@@ -1,6 +1,7 @@
 package com.slifix.slifix;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -38,7 +39,7 @@ import java.util.List;
 import java.util.Map;
 
 public class FoodDashboard extends AppCompatActivity {
-    ImageView activityImage;
+    CardView activityImage;
     RecyclerView recyclerViewsm,recyclerViewHotels,recyclerViewSquare;
     AdapterHotels adapterHotels;
     RequestQueue queue;

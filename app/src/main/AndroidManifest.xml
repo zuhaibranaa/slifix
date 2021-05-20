@@ -16,7 +16,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Slifix">
-        <activity android:name=".hotelDetails"></activity>
+        <activity android:name=".ViewCart"></activity>
+        <activity android:name=".createOrder" />
+        <activity android:name=".hotelDetails" />
         <activity android:name=".ChangePass" />
         <activity android:name=".UserProfile" />
         <activity android:name=".ChangeUsernameEmail" />

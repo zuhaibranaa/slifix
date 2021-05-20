@@ -20,12 +20,26 @@
             android:layout_height="match_parent"
             android:background="@drawable/fresh"
             />
-        <ImageView
+
+        <androidx.cardview.widget.CardView
             android:id="@+id/menuImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="9dp"
-            android:src="@drawable/group_2421"/>
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="12dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@color/app"/>
+            <ImageView
+                android:src="@drawable/ic_baseline_menu_24"
+                android:contentDescription="icon_ionic_ios_arrow_back"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+        </androidx.cardview.widget.CardView>
+
 
     </androidx.cardview.widget.CardView>
 

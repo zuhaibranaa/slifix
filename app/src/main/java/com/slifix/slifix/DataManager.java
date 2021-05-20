@@ -6,6 +6,16 @@ public class DataManager {
     private static String userName;
     private static String activeRestaurantId;
 
+    public static String getActiveRestaurantName() {
+        return activeRestaurantName;
+    }
+
+    public static void setActiveRestaurantName(String activeRestaurantName) {
+        DataManager.activeRestaurantName = activeRestaurantName;
+    }
+
+    private static String activeRestaurantName;
+
 
     public static String getActiveRestaurantId() {
         return activeRestaurantId;

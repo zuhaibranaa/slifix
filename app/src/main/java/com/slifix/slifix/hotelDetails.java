@@ -1,15 +1,12 @@
 package com.slifix.slifix;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.os.Debug;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -43,8 +40,7 @@ public JSONObject obj,obj2,obj3;
 public JSONObject[] obj1;
 RecyclerView hotelMenu;
 List<String> menuItems = new ArrayList<String>();
-ArrayList<itemsMenu> items;
-RecyclerView restaurantMenuItems;
+public static ArrayList<itemsMenu> items;
 TextView restaurantName,status,statusTime,deliveryFee,deliveryTime;
 ImageView homeBtn;
     @Override
@@ -52,7 +48,7 @@ ImageView homeBtn;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hotel_details);
         if (DataManager.getActiveRestaurantId() == null){
-            Toast.makeText(this, "No Restaurant Clicked", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "No Restaurant Selected", Toast.LENGTH_SHORT).show();
             finish();
         }
         bckbtn = findViewById(R.id.hoteldetailsbckbtn);
@@ -62,7 +58,6 @@ ImageView homeBtn;
         statusTime = findViewById(R.id.statusValue);
         deliveryTime = findViewById(R.id.deliveryTime);
         deliveryFee = findViewById(R.id.deliveryFee);
-        restaurantMenuItems = findViewById(R.id.restaurantMenuItems);
         loadItems();
 
         homeBtn.setOnClickListener(new View.OnClickListener() {
@@ -93,6 +88,7 @@ ImageView homeBtn;
                     e.printStackTrace();
                 }try {
                     restaurantName.setText(obj.getString("name"));
+                    DataManager.setActiveRestaurantName (obj.getString ("name"));
                     statusTime.setText(obj.getString("open Time"));
                     deliveryTime.setText(obj.getString("Delivery Time")+" min");
                     deliveryFee.setText("Delivery Fee Rs."+obj.getString("Delivery Fee"));
@@ -114,10 +110,8 @@ ImageView homeBtn;
                     for (int j = 0; j < menuItems.size() ; j++){
                         try {
                             String itemName = String.valueOf (menuItems.get (j));
-                            Log.e ("Object",obj1[j].getString (itemName));
                             JSONArray arr1 = new JSONArray (obj1[j].getString (itemName));
                             for (int k = 0 ; k < arr1.length () ; k++){
-                                Toast.makeText (hotelDetails.this, arr1.get (k).toString (), Toast.LENGTH_SHORT).show ();
                                 obj3 = new JSONObject (arr1.get (k).toString ());
                                 itemsMenu item = new itemsMenu ();
                                 item.setName (String.valueOf (menuItems.get(j)));
@@ -132,7 +126,7 @@ ImageView homeBtn;
                         }
                     }
                     hotelMenu.setLayoutManager (new LinearLayoutManager (getApplicationContext ()));
-                    restaurantMenuItems.setAdapter (new AdapterHotelMenu (items,getApplicationContext ()));
+                    hotelMenu.setAdapter (new AdapterHotelMenu (items,getApplicationContext ()));
 
                 } catch (JSONException e) {
                     e.printStackTrace();

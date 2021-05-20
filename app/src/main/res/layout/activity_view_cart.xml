@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ViewCart">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/backBtnViewCart"
+        android:layout_margin="4dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/app"/>
+        <ImageView
+            android:src="@drawable/ic_baseline_arrow_back_ios_24"
+            android:contentDescription="icon_ionic_ios_arrow_back"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="11dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+    </androidx.cardview.widget.CardView>
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="35sp"
+    android:textStyle="bold"
+    android:layout_marginTop="50dp"
+    android:layout_marginLeft="20dp"
+    android:text="Cart"/>
+    <TextView
+        android:id="@+id/deliveryFee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="170dp"
+        android:text="Delivery Fee"
+        />
+    <TextView
+        android:id="@+id/billWithoutDeliveryFee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_marginTop="110dp"
+        android:text="Rs.1220"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="95dp"
+        android:text="Total Items"
+        />
+    <TextView
+        android:id="@+id/totalBillTopSide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="260dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="100dp"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:text="Rs 1245"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="260dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="85dp"
+        android:text="Total Bill"
+        />
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/viewCartRV"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="200dp"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total"
+            android:layout_marginLeft="30sp"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/totalBillBottomSide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:text="Rs.1245"
+            />
+        <ImageView
+            android:id="@+id/checkOutBtn"
+            android:layout_width="140dp"
+            android:scaleX="1.5"
+            android:scaleY="1.15"
+            android:layout_height="47dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="220dp"
+            android:src="@drawable/rectangle3"/>
+
+        <TextView
+    android:id="@+id/btnCheckout"
+    android:layout_width="100dp"
+    android:layout_height="50dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="250dp"
+    android:layout_marginTop="7dp"
+    android:textSize="20sp"
+    android:text="Checkout"
+    android:textAlignment="center"
+    android:textColor="@color/white"
+    android:gravity="center_vertical"
+    tools:ignore="RtlCompat" />
+        <ImageView
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_marginLeft="237dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/textboxround"
+            android:src="@drawable/ic_baseline_arrow_forward_ios_appcolor"/>
+
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

@@ -29,13 +29,13 @@
                 android:layout_height="wrap_content"
                 >
                 <ImageView
-                    android:src="@drawable/icon_ionic_ios_person"
-                    android:contentDescription="icon_ionic_ios_person"
+                    android:background="@color/white"
+                    android:src="@drawable/ic_baseline_person_24"
                     android:layout_marginStart="21dp"
                     android:layout_marginTop="7dp"
                     android:layout_marginBottom="7dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_marginLeft="21dp" />
                 <TextView
                     android:fontFamily="Segoe UI"
@@ -65,21 +65,12 @@
                 >
 
                     <ImageView
-                        android:src="@drawable/path_1077"
-                        android:contentDescription="path_1077"
-                        android:layout_marginStart="35dp"
-                        android:layout_marginTop="39dp"
-                        android:layout_marginBottom="9dp"
-                        android:layout_width="6.7711181640625dp"
-                        android:layout_height="3.7265625dp"
-                        android:layout_marginLeft="35dp" />
-                    <ImageView
-                        android:src="@drawable/path_1078"
+                        android:src="@drawable/ic_baseline_notifications_24"
                         android:contentDescription="path_1078"
                         android:layout_marginStart="21dp"
                         android:layout_marginTop="7dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:layout_marginLeft="21dp" />
                     <TextView
                         android:fontFamily="Segoe UI"
@@ -110,13 +101,13 @@
                 android:layout_height="wrap_content"
                 >
                 <ImageView
-                    android:src="@drawable/icon_awesome_lock"
+                    android:src="@drawable/ic_baseline_lock_24"
                     android:contentDescription="icon_awesome_lock"
                     android:layout_marginStart="21dp"
                     android:layout_marginTop="7dp"
                     android:layout_marginBottom="7dp"
-                    android:layout_width="31.5dp"
-                    android:layout_height="36dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_marginLeft="15dp" />
                 <TextView
                     android:fontFamily="Segoe UI"
@@ -145,13 +136,13 @@
                 >
 
                 <ImageView
-                    android:src="@drawable/icon_ionic_md_checkmark_circle_outline"
+                    android:src="@drawable/ic_baseline_check_circle_outline_24"
                     android:contentDescription="icon_ionic_md_checkmark_circle_outline"
                     android:layout_marginStart="21dp"
                     android:layout_marginTop="7dp"
                     android:layout_marginBottom="7dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_marginLeft="21dp" />
 
                 <TextView
@@ -183,13 +174,13 @@
                 >
 
                 <ImageView
-                    android:src="@drawable/icon_material_branding_watermark"
+                    android:src="@drawable/ic_baseline_featured_video_24"
                     android:contentDescription="icon_material_branding_watermark"
                     android:layout_marginStart="21dp"
                     android:layout_marginTop="7dp"
                     android:layout_marginBottom="7dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_marginLeft="21dp" />
 
                 <TextView
