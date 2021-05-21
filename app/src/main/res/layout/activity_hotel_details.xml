@@ -48,7 +48,6 @@
         android:layout_marginTop="220dp"
         android:layout_marginEnd="100dp"
         android:layout_marginRight="100dp"
-        android:text="Restaurant Name"
         android:textAlignment="center"
         android:textSize="18dp"
         android:textStyle="bold" />
@@ -81,7 +80,7 @@
             android:layout_marginTop="20dp"
             android:textColor="@color/app"
             android:textStyle="bold"
-            android:text="Status"
+            android:text="Open"
             android:layout_height="wrap_content"
             android:layout_marginLeft="120dp" />
         <TextView
@@ -89,7 +88,6 @@
             android:layout_width="wrap_content"
             android:layout_marginTop="20dp"
             android:textColor="@color/app"
-            android:text="Time"
             android:textStyle="bold"
             android:layout_height="wrap_content"
             android:layout_marginLeft="190dp" />
@@ -102,7 +100,6 @@
         <TextView
             android:id="@+id/deliveryTime"
             android:layout_width="wrap_content"
-            android:text="Delivery Time "
             android:textStyle="bold"
             android:textColor="@color/app"
             android:layout_marginTop="55dp"
@@ -112,7 +109,6 @@
         <TextView
             android:id="@+id/deliveryFee"
             android:layout_width="wrap_content"
-            android:text="Delivery Fee "
             android:textStyle="bold"
             android:textColor="@color/app"
             android:layout_marginTop="55dp"

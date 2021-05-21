@@ -14,19 +14,24 @@
         android:textColor="@color/app"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.08" android:id="@+id/textView2"
+        app:layout_constraintVertical_bias="0.08"
+        android:id="@+id/textView2"
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/enter_the_6_digit_code_sent_to_you_at"
         android:textColor="@color/itc"
-        app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.254"
-        android:textSize="18sp" android:fontFamily="@font/nunito_sans"/>
+        android:textSize="18sp"
+        android:fontFamily="@font/nunito_sans"/>
 
     <EditText
         android:id="@+id/otpField"
@@ -34,7 +39,6 @@
         android:layout_height="50dp"
         android:layout_weight="0.98"
         android:height="40dp"
-        android:autofillHints=""
         android:background="@drawable/textbox"
         android:fontFamily="@font/poppins"
         android:gravity="center_horizontal|center_vertical"

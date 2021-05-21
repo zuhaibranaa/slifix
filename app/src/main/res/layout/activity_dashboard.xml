@@ -17,56 +17,38 @@
     <TextView
         android:id="@+id/good_morning__shaker"
         android:layout_width="202dp"
-        android:layout_height="38dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|center"
-        android:layout_marginStart="70dp"
         android:layout_marginLeft="70dp"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="13dp"
         android:fontFamily="@font/poppins"
         android:gravity="center"
-        android:text="@string/good_morning__shaker_string"
+        android:text=""
         android:textColor="@color/white"
         android:textSize="18sp" />
     <ImageView android:id="@+id/ellipse_1"
         android:src="@drawable/ellipse_1"
         android:contentDescription="ellipse_1"
         android:layout_marginStart="306dp"
-        android:layout_marginTop="29dp"
+        android:layout_marginTop="20dp"
         android:layout_width="38dp"
         android:layout_height="38dp"
         android:layout_marginLeft="306dp" />
-    <RelativeLayout
+    <androidx.cardview.widget.CardView
         android:id="@+id/MenuButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    <ImageView
-        android:id="@+id/path_"
-        android:layout_width="27dp"
-        android:layout_height="2.25dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="30dp"
-        android:contentDescription="path_56"
-        android:src="@drawable/path_56"
-        android:layout_marginLeft="10dp" />
-    <ImageView
-        android:id="@+id/path_2"
-        android:layout_width="27dp"
-        android:layout_height="2.25dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="37dp"
-        android:contentDescription="path_57"
-        android:src="@drawable/path_57"
-        android:layout_marginLeft="10dp" />
-    <ImageView
-        android:id="@+id/path_3"
-        android:layout_width="27dp"
-        android:layout_height="2.25dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="44dp"
-        android:contentDescription="path_58"
-        android:src="@drawable/path_58"
-        android:layout_marginLeft="10dp" />
-    </RelativeLayout>
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/app"/>
+        <ImageView
+            android:src="@drawable/ic_baseline_menu_24"
+            android:layout_width="40dp"
+            android:layout_height="40dp"/>
+    </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/FoodCard"

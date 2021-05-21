@@ -17,6 +17,8 @@ import com.slifix.slifix.createOrder;
 
 import java.util.ArrayList;
 
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+
 public class AdapterHotelMenu extends RecyclerView.Adapter<AdapterHotelMenu.ViewHolder> {
     public ArrayList<itemsMenu> data;
     Context ctx;
@@ -39,7 +41,11 @@ public class AdapterHotelMenu extends RecyclerView.Adapter<AdapterHotelMenu.View
         holder.itemName.setText (data.get (position).name);
         holder.itemCategory.setText (data.get (position).type+" : "+data.get (position).size);
         holder.itemPrice.setText ("Rs."+data.get (position).price);
-        holder.itemLayout.setOnClickListener (v -> ctx.startActivity(new Intent (ctx, createOrder.class)));
+        holder.itemLayout.setOnClickListener (v -> {
+            Intent intent = new Intent (ctx,createOrder.class);
+            intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
+            ctx.startActivity(intent);
+        });
 
     }
 

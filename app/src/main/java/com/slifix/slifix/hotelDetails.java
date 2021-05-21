@@ -108,8 +108,12 @@ ImageView homeBtn;
                         Log.e("Error ", String.valueOf(e));
                     }
                 }
-                hotelMenu.setLayoutManager (new LinearLayoutManager (getApplicationContext ()));
-                hotelMenu.setAdapter (new AdapterHotelMenu (items,getApplicationContext ()));
+                try {
+                    hotelMenu.setLayoutManager (new LinearLayoutManager (getApplicationContext ()));
+                    hotelMenu.setAdapter (new AdapterHotelMenu (items,getApplicationContext ()));
+                } catch (Exception e) {
+                    e.printStackTrace ();
+                }
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -123,7 +127,7 @@ ImageView homeBtn;
             protected Map<String,String> getParams(){
                 Map<String,String> params = new HashMap<>();
                 params.put("id",DataManager.getActiveRestaurantId());
-                params.put("phone", DataManager.getPhoneNumber());
+                params.put("phone", DataManager.getPhoneNumber ());
                 return params;
             }
             @Override

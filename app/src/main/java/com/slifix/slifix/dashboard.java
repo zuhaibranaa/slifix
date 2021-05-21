@@ -33,7 +33,7 @@ public class dashboard extends AppCompatActivity {
     public RequestQueue queue;
     public StringRequest req;
     public JSONObject obj;
-    RelativeLayout menu;
+    CardView menu;
     int time;
     public static String gndr,categories;
     private static final SimpleDateFormat sdf1 = new SimpleDateFormat("HH");
@@ -42,8 +42,8 @@ public class dashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-        CardView foodIco = (CardView) findViewById(R.id.FoodCard);
-        logout = (SwipeButton) findViewById(R.id.logout);
+        CardView foodIco = findViewById(R.id.FoodCard);
+        logout = findViewById(R.id.logout);
         menu = findViewById(R.id.MenuButton);
         txt = findViewById(R.id.good_morning__shaker);
         getUData();

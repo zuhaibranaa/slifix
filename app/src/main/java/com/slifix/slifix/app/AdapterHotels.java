@@ -1,15 +1,14 @@
 package com.slifix.slifix.app;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,7 +17,8 @@ import com.slifix.slifix.R;
 import com.slifix.slifix.hotelDetails;
 
 import java.util.ArrayList;
-import java.util.List;
+
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
 public class AdapterHotels extends RecyclerView.Adapter<AdapterHotels.ViewHolder> {
     public ArrayList<Restaurants> data;
@@ -28,25 +28,25 @@ public class AdapterHotels extends RecyclerView.Adapter<AdapterHotels.ViewHolder
         this.ctx = context;
     }
 
+    @NonNull
     @Override
     public AdapterHotels.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View v = inflater.inflate(R.layout.restaurants,parent,false);
-        AdapterHotels.ViewHolder viewHolder = new AdapterHotels.ViewHolder(v);
-        return viewHolder;
+        return new ViewHolder(v);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(AdapterHotels.ViewHolder holder, int position) {
         holder.restaurantName.setText(data.get(position).getName());
         holder.minOrder.setText("Minimum Rs."+data.get(position).getMinimum_value());
         holder.deliveryFee.setText("Delivery Fee Rs."+data.get(position).getDelivery_fee());
-        holder.singleRestaurant.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DataManager.setActiveRestaurantId(data.get(position).getId());
-                ctx.startActivity(new Intent(ctx,hotelDetails.class));
-            }
+        holder.singleRestaurant.setOnClickListener(v -> {
+            DataManager.setActiveRestaurantId(data.get(position).getId());
+            Intent intent = new Intent (ctx,hotelDetails.class);
+            intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
+            ctx.startActivity(intent);
         });
     }
 

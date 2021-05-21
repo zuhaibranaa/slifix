@@ -47,7 +47,7 @@
                     android:textSize="18sp"
                     android:layout_marginLeft="114dp"
                     android:layout_marginTop="187dp"
-                    android:text="@string/shaker_muhammed___string"
+                    android:text=""
                     />
             <TextView
                 android:fontFamily="Segoe UI"
@@ -73,7 +73,7 @@
                     android:textSize="18sp"
                     android:layout_marginTop="255dp"
                     android:layout_marginLeft="114dp"
-                    android:text="@string/__8804658541155__string"
+                    android:text=""
                     />
             <TextView
                 android:fontFamily="Segoe UI"
@@ -87,7 +87,7 @@
                 android:text="@string/email__string"
                 />
             <EditText android:id="@+id/slifix_gmail_com_"
-        android:hint="Enter New Email"
+        android:hint=""
         android:layout_marginTop="323dp"
         android:layout_marginStart="114dp"
         android:layout_width="248dp"

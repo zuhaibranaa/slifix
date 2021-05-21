@@ -60,6 +60,7 @@ public class ChangeUsernameEmail extends AppCompatActivity {
                 DataManager.setUserEmail(email.getText().toString());
                 DataManager.setPhoneNumber(phone.getText().toString());
                 changeUserData();
+                finish ();
             }
         });
     }
@@ -70,9 +71,8 @@ public class ChangeUsernameEmail extends AppCompatActivity {
             req = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    Toast.makeText(ChangeUsernameEmail.this, response, Toast.LENGTH_SHORT).show();
                     if (Integer.parseInt(response) == 200){
-                        Toast.makeText(ChangeUsernameEmail.this, "Saved", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext (), "Saved", Toast.LENGTH_SHORT).show();
                     }
                 }
             }, new Response.ErrorListener() {
@@ -101,17 +101,16 @@ public class ChangeUsernameEmail extends AppCompatActivity {
     void SaveUserData(){
         String url = "https://slifixfood.herokuapp.com/profile-Details/";
         queue = VolleySingleton.getInstance(this).getRequestQueue();
-        Toast.makeText(this, "Save User Data", Toast.LENGTH_SHORT).show();
         req = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 String jsonString =response ;
                 try {
                     obj = new JSONObject(jsonString);
+                    email.setText (obj.getString ("Email"));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
             }
         }, new Response.ErrorListener() {
             @Override

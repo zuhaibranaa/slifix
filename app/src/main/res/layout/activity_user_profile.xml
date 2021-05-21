@@ -10,18 +10,22 @@
                 android:background="@drawable/rectangle_2189_shape"
                 android:layout_width="match_parent"
                 android:layout_height="66dp" />
+
             <TextView
-                android:fontFamily="Segoe UI"
-                android:textStyle="bold"
-                android:textSize="22sp"
-                android:textColor="@color/setting__color"
-                android:layout_marginLeft="150dp"
-                android:layout_marginRight="150dp"
-                android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="120dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="120dp"
+                android:fontFamily="Segoe UI"
                 android:text="@string/setting__string"
-                />
+                android:textColor="@color/setting__color"
+                android:textSize="22sp"
+                android:textStyle="bold" />
             <androidx.cardview.widget.CardView
                 android:id="@+id/account"
                 android:layout_marginTop="79dp"

@@ -12,7 +12,6 @@
             android:layout_marginTop="30dp"
             android:textSize="18sp"
             android:layout_marginLeft="20dp"
-            android:text="Burger"
             />
 
 
@@ -23,7 +22,6 @@
             android:layout_marginTop="0dp"
             android:textSize="20sp"
             android:layout_marginLeft="20dp"
-            android:text="Burger"
             />
 
 
@@ -34,5 +32,5 @@
             android:textSize="18sp"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="250dp"
-            android:text="Rs.120"/>
+            />
 </RelativeLayout>
