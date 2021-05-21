@@ -1,11 +1,27 @@
 package com.slifix.slifix;
 
-public class DataManager {
-    private static String phoneNumber;
-    private static String authToken;
-    private static String userName;
-    private static String activeRestaurantId;
+import android.app.Service;
+import android.content.Intent;
+import android.os.IBinder;
+import android.util.Log;
+import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+
+public class DataManager extends Service {
+    private static String phoneNumber,authToken,userName,activeRestaurantId,activeRestaurantName,userEmail;
+    @Nullable
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        authToken = phoneNumber = null;
+        Toast.makeText(this, "Service Started", Toast.LENGTH_SHORT).show();
+        return START_STICKY;
+    }
     public static String getActiveRestaurantName() {
         return activeRestaurantName;
     }
@@ -13,9 +29,6 @@ public class DataManager {
     public static void setActiveRestaurantName(String activeRestaurantName) {
         DataManager.activeRestaurantName = activeRestaurantName;
     }
-
-    private static String activeRestaurantName;
-
 
     public static String getActiveRestaurantId() {
         return activeRestaurantId;
@@ -32,12 +45,7 @@ public class DataManager {
     public static void setUserEmail(String userEmail) {
         DataManager.userEmail = userEmail;
     }
-
-    private static String userEmail;
     private static String userLatitude = "10",userLongitude = "5";
-    DataManager(){
-        authToken = phoneNumber = null;
-    }
 
     public static String getUserName() {
         return userName;
@@ -77,5 +85,11 @@ public class DataManager {
 
     public static void setUserLongitude(String userLongitude) {
         DataManager.userLongitude = userLongitude;
+    }
+
+    @Override
+    public void onDestroy() {
+        Toast.makeText(this, "Service Destroyed", Toast.LENGTH_SHORT).show();
+        super.onDestroy();
     }
 }

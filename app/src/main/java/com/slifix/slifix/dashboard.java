@@ -42,10 +42,6 @@ public class dashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-        if (DataManager.getAuthToken() == null){
-            Toast.makeText(this, "Please Login First", Toast.LENGTH_SHORT).show();
-            finish();
-        }
         CardView foodIco = (CardView) findViewById(R.id.FoodCard);
         logout = (SwipeButton) findViewById(R.id.logout);
         menu = findViewById(R.id.MenuButton);

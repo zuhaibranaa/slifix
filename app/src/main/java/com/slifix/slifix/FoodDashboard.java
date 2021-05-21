@@ -1,46 +1,31 @@
 package com.slifix.slifix;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.Toast;
-
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.StringRequest;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import com.slifix.slifix.app.AdapterHotels;
-import com.slifix.slifix.app.AdapterSmall;
-import com.slifix.slifix.app.AdapterSquare;
 import com.slifix.slifix.app.Restaurants;
 import com.slifix.slifix.app.VolleySingleton;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class FoodDashboard extends AppCompatActivity {
     CardView activityImage;
-    RecyclerView recyclerViewsm,recyclerViewHotels,recyclerViewSquare;
+    RecyclerView recyclerViewHotels;
     AdapterHotels adapterHotels;
     RequestQueue queue;
     JsonArrayRequest req;
@@ -51,12 +36,7 @@ public class FoodDashboard extends AppCompatActivity {
         setContentView(R.layout.activity_food_dashboard);
         activityImage = findViewById(R.id.menuImage);
         Intent it = new Intent(this,UserProfile.class);
-        activityImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(it);
-            }
-        });
+        activityImage.setOnClickListener(v -> startActivity(it));
         //Food Types
 //        recyclerViewsm = (RecyclerView) findViewById(R.id.smallItems);
 //        layoutManagersm = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, false);
@@ -80,7 +60,7 @@ public class FoodDashboard extends AppCompatActivity {
 //        recyclerViewSquare.setAdapter(adapterSquare);
 
         //All Restaurants
-        recyclerViewHotels = (RecyclerView) findViewById(R.id.restaurants);
+        recyclerViewHotels = findViewById(R.id.restaurants);
         restaurant = new ArrayList<>();
         getLoc();
     }
@@ -88,7 +68,7 @@ public class FoodDashboard extends AppCompatActivity {
         String url ="https://slifixfood.herokuapp.com/get-location/?longitude="+DataManager.getUserLongitude()+"&latitude="+DataManager.getUserLatitude();
         queue = VolleySingleton.getInstance(this).getRequestQueue();
         req = new JsonArrayRequest( Request.Method.GET, url, null, response -> {
-            for (int i = 0 ; i <= response.length() ; i++){
+            for (int i = 0 ; i < response.length() ; i++){
                 try {
                     JSONObject restaurantObj = response.getJSONObject(i);
                     Restaurants res = new Restaurants();
@@ -116,9 +96,13 @@ public class FoodDashboard extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                recyclerViewHotels.setLayoutManager(new LinearLayoutManager(this));
-                adapterHotels = new AdapterHotels(restaurant,getApplicationContext());
-                recyclerViewHotels.setAdapter(adapterHotels);
+                try {
+                    recyclerViewHotels.setLayoutManager(new LinearLayoutManager(this));
+                    adapterHotels = new AdapterHotels(restaurant,getApplicationContext());
+                    recyclerViewHotels.setAdapter(adapterHotels);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }, error -> {
             error.printStackTrace();

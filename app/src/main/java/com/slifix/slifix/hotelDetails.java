@@ -1,22 +1,18 @@
 package com.slifix.slifix;
 
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.slifix.slifix.app.AdapterHotelMenu;
 import com.slifix.slifix.app.VolleySingleton;
@@ -36,10 +32,10 @@ public class hotelDetails extends AppCompatActivity {
 CardView bckbtn;
 public RequestQueue queue;
 public StringRequest req;
-public JSONObject obj,obj2,obj3;
+public JSONObject obj,obj3;
 public JSONObject[] obj1;
 RecyclerView hotelMenu;
-List<String> menuItems = new ArrayList<String>();
+List<String> menuItems = new ArrayList<>();
 public static ArrayList<itemsMenu> items;
 TextView restaurantName,status,statusTime,deliveryFee,deliveryTime;
 ImageView homeBtn;
@@ -60,96 +56,79 @@ ImageView homeBtn;
         deliveryFee = findViewById(R.id.deliveryFee);
         loadItems();
 
-        homeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-        bckbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        homeBtn.setOnClickListener(v -> finish());
+        bckbtn.setOnClickListener(v -> finish());
 
 
     }
     void loadItems(){
         String url = "https://slifixfood.herokuapp.com/get-hotel/";
         queue = VolleySingleton.getInstance(this).getRequestQueue();
-        req = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                String jsonString =response ;
-                try {
-                    obj = new JSONObject(jsonString);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }try {
-                    restaurantName.setText(obj.getString("name"));
-                    DataManager.setActiveRestaurantName (obj.getString ("name"));
-                    statusTime.setText(obj.getString("open Time"));
-                    deliveryTime.setText(obj.getString("Delivery Time")+" min");
-                    deliveryFee.setText("Delivery Fee Rs."+obj.getString("Delivery Fee"));
-                    JSONArray arr= new JSONArray(obj.getString("Menu"));
+        req = new StringRequest(Request.Method.POST, url, response -> {
+            try {
+                obj = new JSONObject(response);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }try {
+                restaurantName.setText(obj.getString("name"));
+                DataManager.setActiveRestaurantName (obj.getString ("name"));
+                statusTime.setText(obj.getString("open Time"));
+                deliveryTime.setText(obj.getString("Delivery Time")+" min");
+                deliveryFee.setText("Delivery Fee Rs."+obj.getString("Delivery Fee"));
+                JSONArray arr= new JSONArray(obj.getString("Menu"));
 
-                    obj1 = new JSONObject[arr.length ()];
+                obj1 = new JSONObject[arr.length ()];
 
-                    //Extract Keys From Menu
+                //Extract Keys From Menu
 
-                    for (int i = 0 ; i < arr.length(); i++){
-                        obj1[i] = new  JSONObject(String.valueOf(arr.get(i)));
-                        Iterator<String> keyList = obj1[i].keys();
-                        do {
-                            menuItems.add(String.valueOf(keyList.next()));
-                        }while (keyList.hasNext());
-                    }
-                    items = new ArrayList<> ();
-                    hotelMenu = (RecyclerView) findViewById (R.id.restaurantMenuItems);
-                    for (int j = 0; j < menuItems.size() ; j++){
-                        try {
-                            String itemName = String.valueOf (menuItems.get (j));
-                            JSONArray arr1 = new JSONArray (obj1[j].getString (itemName));
-                            for (int k = 0 ; k < arr1.length () ; k++){
-                                obj3 = new JSONObject (arr1.get (k).toString ());
-                                itemsMenu item = new itemsMenu ();
-                                item.setName (String.valueOf (menuItems.get(j)));
-                                item.setId (obj3.getString ("ID"));
-                                item.setType (obj3.getString ("Type"));
-                                item.setSize (obj3.getString ("size"));
-                                item.setPrice (obj3.getString ("Price"));
-                                items.add (item);
-                            }
-                        } catch (JSONException e) {
-                            Log.e("Error ",String.valueOf (e)+"s in University");
-                        }
-                    }
-                    hotelMenu.setLayoutManager (new LinearLayoutManager (getApplicationContext ()));
-                    hotelMenu.setAdapter (new AdapterHotelMenu (items,getApplicationContext ()));
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                for (int i = 0 ; i < arr.length(); i++){
+                    obj1[i] = new  JSONObject(String.valueOf(arr.get(i)));
+                    Iterator<String> keyList = obj1[i].keys();
+                    do {
+                        menuItems.add(String.valueOf(keyList.next()));
+                    }while (keyList.hasNext());
                 }
+                items = new ArrayList<> ();
+                hotelMenu = findViewById (R.id.restaurantMenuItems);
+                for (int j = 0; j < menuItems.size() ; j++){
+                    try {
+                        String itemName = String.valueOf (menuItems.get (j));
+                        JSONArray arr1 = new JSONArray (obj1[j].getString (itemName));
+                        for (int k = 0 ; k < arr1.length () ; k++){
+                            obj3 = new JSONObject (arr1.get (k).toString ());
+                            itemsMenu item = new itemsMenu ();
+                            item.setName (String.valueOf (menuItems.get(j)));
+                            item.setId (obj3.getString ("ID"));
+                            item.setType (obj3.getString ("Type"));
+                            item.setSize (obj3.getString ("size"));
+                            item.setPrice (obj3.getString ("Price"));
+                            items.add (item);
+                        }
+                    } catch (JSONException e) {
+                        Log.e("Error ", String.valueOf(e));
+                    }
+                }
+                hotelMenu.setLayoutManager (new LinearLayoutManager (getApplicationContext ()));
+                hotelMenu.setAdapter (new AdapterHotelMenu (items,getApplicationContext ()));
 
-
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
 
-            }
+
+        }, error -> {
+
         }){
             @Override
             protected Map<String,String> getParams(){
-                Map<String,String> params = new HashMap<String,String>();
+                Map<String,String> params = new HashMap<>();
                 params.put("id",DataManager.getActiveRestaurantId());
                 params.put("phone", DataManager.getPhoneNumber());
                 return params;
             }
             @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                HashMap<String, String> params = new HashMap<String, String>();
+            public Map<String, String> getHeaders() {
+                HashMap<String, String> params = new HashMap<>();
                 params.put("Authorization", "Bearer "+DataManager.getAuthToken());
                 return params;
             }

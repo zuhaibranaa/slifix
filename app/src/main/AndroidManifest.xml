@@ -16,7 +16,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Slifix">
-        <activity android:name=".ViewCart"></activity>
+        <service
+            android:name=".DataManager"
+            android:enabled="true"
+            android:exported="true"></service>
+        <activity android:name=".ViewCart" />
         <activity android:name=".createOrder" />
         <activity android:name=".hotelDetails" />
         <activity android:name=".ChangePass" />
