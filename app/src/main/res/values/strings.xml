@@ -1,16 +1,8 @@
 <resources>
-    <string name="ek_img_content">ExportKit Image</string>
-    <string name="_11_04_pm_string">11:04 PM</string>
-    <string name="_26_string">26</string>
     <string name="checkout_string">Checkout</string>
-    <string name="place_order_string">PLACE ORDER</string>
     <string name="page_title_string">PAYMENT METHOD</string>
-    <string name="bkash_string">BKASH</string>
     <string name="page_title_ek1_string">SHIPPING ADDRESS</string>
-    <string name="shaker_shaker_no_123__sub_street___kharian__gurjat__punjab__pakistan_string">Shaker ShakerNo 123, Sub Street, Kharian,Gurjat, Punjab,Pakistan</string>
     <string name="add_promo_code_string">Add Promo Code</string>
-    <string name="rs_1245_string">Rs.1245</string>
-    <string name="total_string">TOTAL</string>
     <string name="app_name">slifix</string>
     <string name="login">Login</string>
     <string name="forgot">Forgot Password?</string>
