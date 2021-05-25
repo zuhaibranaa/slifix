@@ -68,11 +68,13 @@ public class ChangeUsernameEmail extends AppCompatActivity {
     private void changeUserData() {
             String url = "https://slifixfood.herokuapp.com/edit-profile/";
             queue = VolleySingleton.getInstance(this).getRequestQueue();
-            req = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            req = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     if (Integer.parseInt(response) == 200){
                         Toast.makeText(getApplicationContext (), "Saved", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText (ChangeUsernameEmail.this, response, Toast.LENGTH_SHORT).show ();
                     }
                 }
             }, new Response.ErrorListener() {

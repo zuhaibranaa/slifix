@@ -2,6 +2,7 @@ package com.slifix.slifix;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -53,6 +54,7 @@ public class dashboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),UserProfile.class));
+                finish ();
             }
         });
         logout.setOnActiveListener(new OnActiveListener() {

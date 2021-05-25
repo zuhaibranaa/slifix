@@ -1,0 +1,211 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:forceDarkAllowed="false"
+    android:layout_height="match_parent" >
+
+
+            <TextView
+                android:id="@+id/checkout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/checkout_string"
+                android:textColor="@color/checkout_color"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <RelativeLayout android:id="@+id/payment"
+                android:layout_marginTop="240dp"
+                android:layout_marginStart="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp">
+
+                <TextView android:id="@+id/page_title"
+                    android:alpha="0.5"
+                    android:textSize="12sp"
+                    android:textColor="@color/checkout_color"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/page_title_string"
+                    />
+
+                <TextView android:id="@+id/bkash"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="@color/checkout_color"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/on_delivery"
+                    />
+                <ImageView android:id="@+id/ic_edit_24px_ek1"
+                    android:src="@drawable/ic_baseline_edit_24"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="15dp"/>
+
+
+                <ImageView android:id="@+id/line_16"
+                    android:src="@drawable/line_16"
+                    android:contentDescription="line_16"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="63dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="0dp" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout android:id="@+id/shipping_add"
+                android:layout_marginTop="70dp"
+                android:layout_marginStart="11dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="11dp">
+
+                <TextView android:id="@+id/page_title_ek1"
+                    android:alpha="0.5"
+                    android:textSize="12sp"
+                    android:textColor="@color/checkout_color"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_width="118dp"
+                    android:layout_height="24dp"
+                    android:text="@string/page_title_ek1_string"
+                    />
+
+                <TextView android:id="@+id/shaker_shaker_no_123__sub_street___kharian__gurjat__punjab__pakistan"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="@color/checkout_color"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="131dp"
+                    android:layout_height="118.5dp"
+                    />
+
+                <ImageView android:id="@+id/line_4"
+                    android:src="@drawable/line_4"
+                    android:contentDescription="line_4"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="151dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="0dp" />
+
+            </RelativeLayout>
+
+            <TextView android:id="@+id/add_promo_code"
+                android:textSize="15sp"
+                android:textColor="@color/add_promo_code_color"
+                android:layout_marginLeft="52dp"
+                android:layout_marginTop="342dp"
+                android:layout_width="114dp"
+                android:layout_height="30.5dp"
+                android:text="@string/add_promo_code_string"
+                />
+
+
+            <ImageView android:id="@+id/ic_edit_24px_ek2"
+                android:src="@drawable/ic_baseline_edit_24"
+                android:contentDescription="ic_edit_24px_ek2"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="341.99755859375dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="315.99951171875dp" />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/backBtnCheckout"
+        android:layout_margin="4dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/app"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="5dp"
+            android:contentDescription="icon_ionic_ios_arrow_back"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24" />
+    </androidx.cardview.widget.CardView>
+
+
+
+            <ImageView android:id="@+id/path_16"
+                android:src="@drawable/ic_baseline_local_offer_24"
+                android:contentDescription="path_16"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="341.99755859375dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total"
+            android:layout_marginLeft="30sp"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/totalBillCheckout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:text="Rs.1245"
+            />
+        <ImageView
+            android:id="@+id/PlaceOrderBtn"
+            android:layout_width="140dp"
+            android:layout_height="47dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_baseline_view_agenda_24"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/PlaceOrderBtn"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="34dp"
+            android:layout_marginRight="34dp"
+            android:layout_marginBottom="10dp"
+            android:text="Place Order"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="140dp"
+            android:layout_marginTop="22dp"
+            android:background="@drawable/textboxround"
+            android:src="@drawable/ic_baseline_arrow_forward_ios_appcolor"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission. ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission
         android:name="android.permission.MANAGE_ACCOUNTS"
@@ -16,10 +17,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Slifix">
+        <activity android:name=".AllOrders"></activity>
+        <activity android:name=".OrderPlacedScreen"></activity>
+        <activity android:name=".Checkout" />
+
         <service
             android:name=".DataManager"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
+
         <activity android:name=".ViewCart" />
         <activity android:name=".createOrder" />
         <activity android:name=".hotelDetails" />
@@ -38,6 +44,14 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
+
+        <receiver android:name=".MyReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
         <activity android:name=".login.enterOTP" />
         <activity android:name=".login.createFirstTimePassword" />
         <activity android:name=".login.OTP_Reg" />

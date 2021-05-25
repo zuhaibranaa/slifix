@@ -1,8 +1,11 @@
 package com.slifix.slifix;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -15,6 +18,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.slifix.slifix.app.AdapterCartItems;
 import com.slifix.slifix.app.CartItems;
 import com.slifix.slifix.app.VolleySingleton;
+import com.slifix.slifix.app.itemsMenu;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,11 +32,12 @@ import java.util.Map;
 
 public class ViewCart extends AppCompatActivity {
 CardView backBtn;
+ImageView checkoutBtn;
 TextView totalBillTop,totalBillBottom,billWithoutDeliveryFee,deliveryFee;
 RequestQueue queue;
 StringRequest req;
 JSONObject obj,obj3;
-JSONObject[] obj1;
+JSONObject obj1;
 ArrayList<CartItems> cartItemsArrayList;
 RecyclerView ViewCart;
 List<String> cartItems = new ArrayList<>();
@@ -43,12 +48,17 @@ List<String> cartItems = new ArrayList<>();
         backBtn = findViewById (R.id.backBtnViewCart);
         totalBillTop = findViewById (R.id.totalBillTopSide);
         totalBillBottom = findViewById (R.id.totalBillBottomSide);
+        checkoutBtn = findViewById (R.id.checkOutBtn);
         billWithoutDeliveryFee = findViewById (R.id.billWithoutDeliveryFee);
         ViewCart = findViewById (R.id.viewCartRV);
         deliveryFee = findViewById (R.id.deliveryFee);
         getData();
 
         backBtn.setOnClickListener (v -> finish ());
+        checkoutBtn.setOnClickListener (v -> {
+            startActivity (new Intent (this,Checkout.class));
+            finish ();
+        });
     }
 
     void getData(){
@@ -61,7 +71,8 @@ List<String> cartItems = new ArrayList<>();
                 e.printStackTrace();
             }
             try {
-                totalBillBottom.setText ("Rs."+obj.getString ("Bill"));
+                DataManager.setBill(obj.getString ("Bill"));
+                totalBillBottom.setText ("Rs."+DataManager.getBill ());
                 totalBillTop.setText ("Rs."+obj.getString ("Bill"));
                 deliveryFee.setText ("Rs."+obj.getString ("Delivery Fee"));
                 int noDeliveryBill = Integer.parseInt (obj.getString ("Bill")) - Integer.parseInt (obj.getString ("Delivery Fee"));
@@ -69,13 +80,13 @@ List<String> cartItems = new ArrayList<>();
 
                 JSONArray arr= new JSONArray(obj.getString("Items"));
 
-                obj1 = new JSONObject[arr.length ()];
+                obj1 = new JSONObject ();
 
                 //Extract Keys From Menu
 
                 for (int i = 0 ; i < arr.length(); i++){
-                    obj1[i] = new  JSONObject(String.valueOf(arr.get(i)));
-                    Iterator<String> keyList = obj1[i].keys();
+                    obj1 = new  JSONObject(String.valueOf(arr.get(i)));
+                    Iterator<String> keyList = obj1.keys();
                     while (keyList.hasNext()) {
                         cartItems.add(String.valueOf(keyList.next()));
                     }
@@ -84,19 +95,39 @@ List<String> cartItems = new ArrayList<>();
                 for (int j = 0; j < cartItems.size() ; j++){
                     try {
                         String itemName = String.valueOf (cartItems.get (j));
-                        obj3 = obj1[j].getJSONObject (itemName);
-                        CartItems item = new CartItems ();
-                        item.setName (itemName);
-                        item.setId (obj3.getString ("ID"));
-                        item.setType (obj3.getString ("type"));
-                        item.setSize (obj3.getString ("Size"));
-                        item.setPrice (obj3.getString ("Price"));
-                        item.setQuantity (obj3.getString ("Quantity"));
-                        cartItemsArrayList.add (item);
+                            obj3 = new JSONObject (obj1.getString (itemName));
+                            CartItems item = new CartItems ();
+                            item.setId (obj3.getString ("ID"));
+                            item.setType (obj3.getString ("type"));
+                            item.setPrice (obj3.getString ("Price"));
+                            item.setSize (obj3.getString ("Size"));
+                            item.setQuantity (obj3.getString ("Quantity"));
+                            cartItemsArrayList.add (item);
                     } catch (JSONException e) {
-                        Log.e("Error ",String.valueOf (e));
+                        Log.e("Error ", String.valueOf(e));
                     }
                 }
+
+
+
+
+//                for (int j = 0; j < cartItems.size() ; j++){
+//                    try {
+//                        String itemName = String.valueOf (cartItems.get (j));
+//                        obj3 = obj1[j].getJSONObject (itemName);
+//                        CartItems item = new CartItems ();
+//                        item.setName (itemName);
+//                        item.setId (obj3.getString ("ID"));
+//                        item.setType (obj3.getString ("type"));
+//                        item.setSize (obj3.getString ("Size"));
+//                        item.setPrice (obj3.getString ("Price"));
+//                        item.setQuantity (obj3.getString ("Quantity"));
+//                        cartItemsArrayList.add (item);
+//                    }
+//                    catch (JSONException e) {
+//                        Log.e("Error ",String.valueOf (e));
+//                    }
+//                }
                 ViewCart.setLayoutManager (new LinearLayoutManager (getApplicationContext ()));
                 ViewCart.setAdapter (new AdapterCartItems (cartItemsArrayList,getApplicationContext ()));
 

@@ -165,6 +165,14 @@ public class MapsActivity extends AppCompatActivity {
                         .snippet(snippet));
                 DataManager.setUserLongitude (String.valueOf(latLng.longitude));
                 DataManager.setUserLatitude (String.valueOf(latLng.latitude));
+                Geocoder geo = new Geocoder (getApplicationContext (),Locale.getDefault ());
+                List<Address> addresses;
+                try {
+                    addresses = geo.getFromLocation (latLng.latitude,latLng.longitude,1);
+                    DataManager.setUserLocation(addresses.get (0).getAddressLine (0));
+                }catch (Exception e){
+                    e.printStackTrace ();
+                }
                 Intent it = new Intent(getApplicationContext(), FoodDashboard.class);
                 startActivity(it);
             }

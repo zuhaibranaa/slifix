@@ -42,7 +42,7 @@ TextView restaurantName;
             }
         });
         try {
-            cartMenu = (RecyclerView) findViewById (R.id.RecyclerViewCartMenu);
+            cartMenu = findViewById (R.id.RecyclerViewCartMenu);
             cartMenu.setLayoutManager (new LinearLayoutManager (getApplicationContext ()));
             cartMenu.setAdapter (new AdapterAddCartMenu (items,getApplicationContext ()));
         } catch (Exception e) {

@@ -1,4 +1,7 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:forceDarkAllowed="false"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent" >
 
             <ImageView
@@ -8,13 +11,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <ImageView
+                android:layout_alignParentRight="true"
+                android:layout_alignParentLeft="true"
                 android:src="@drawable/ellipse_1"
                 android:contentDescription="ellipse_1"
-                android:layout_marginStart="132dp"
                 android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="132dp" />
+                android:layout_height="wrap_content"/>
             <ImageView android:id="@+id/icon_ionic_ios_arrow_back"
                     android:src="@drawable/icon_ionic_ios_arrow_back"
                     android:contentDescription="icon_ionic_ios_arrow_back"
@@ -101,19 +104,20 @@
         android:textSize="18sp"
         android:layout_marginLeft="114dp" />
             <Button
-        android:id="@+id/_save_"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="142.5dp"
-        android:gravity="center"
-        android:layout_marginTop="564.50341796875dp"
-        android:layout_marginBottom="70dp"
-        android:background="@drawable/rectangle_2190_shape"
-        android:fontFamily="Segoe UI"
-        android:text="@string/_save__string"
-        android:textColor="@color/_save__color"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:id="@+id/_save_"
+                android:layout_marginLeft="120dp"
+                android:layout_marginRight="120dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center_horizontal"
+                android:layout_marginBottom="70dp"
+                android:background="@drawable/rectangle_2190_shape"
+                android:text="@string/_save__string"
+                android:textColor="@color/_save__color"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
 </RelativeLayout>

@@ -9,7 +9,24 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 
 public class DataManager extends Service {
-    private static String phoneNumber,authToken,userName,activeRestaurantId,activeRestaurantName,userEmail;
+    private static String phoneNumber,authToken,userName,activeRestaurantId,bill,activeRestaurantName,userLocation,userEmail;
+
+    public static String getUserLocation() {
+        return userLocation;
+    }
+
+    public static void setUserLocation(String userLocation) {
+        DataManager.userLocation = userLocation;
+    }
+
+    public static void setBill(String bill) {
+        DataManager.bill = bill;
+    }
+
+    public static String getBill() {
+        return bill;
+    }
+
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {

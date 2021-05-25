@@ -10,7 +10,6 @@
         android:layout_width="340dp"
         android:layout_height="317dp"
         app:srcCompat="@drawable/logo"
-        android:id="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

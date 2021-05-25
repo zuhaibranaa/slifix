@@ -1,13 +1,22 @@
 <resources>
+    <string name="ek_img_content">ExportKit Image</string>
+    <string name="_11_04_pm_string">11:04 PM</string>
+    <string name="_26_string">26</string>
+    <string name="checkout_string">Checkout</string>
+    <string name="place_order_string">PLACE ORDER</string>
+    <string name="page_title_string">PAYMENT METHOD</string>
+    <string name="bkash_string">BKASH</string>
+    <string name="page_title_ek1_string">SHIPPING ADDRESS</string>
+    <string name="shaker_shaker_no_123__sub_street___kharian__gurjat__punjab__pakistan_string">Shaker ShakerNo 123, Sub Street, Kharian,Gurjat, Punjab,Pakistan</string>
+    <string name="add_promo_code_string">Add Promo Code</string>
+    <string name="rs_1245_string">Rs.1245</string>
+    <string name="total_string">TOTAL</string>
     <string name="app_name">slifix</string>
     <string name="login">Login</string>
-    <string name="desc">Desc</string>
     <string name="forgot">Forgot Password?</string>
     <string name="num_hint">91 98765 43210</string>
     <string name="password">Password</string>
     <string name="todo">TODO</string>
-    <string name="read_more">Read more</string>
-    <string name="agreement">I Accept Slifix\'s Term and Conditions</string>
     <string name="gender">Gender</string>
     <string name="name">Name</string>
     <string name="register">Register</string>
@@ -16,10 +25,7 @@
     <string name="send_otp">SEND OTP</string>
     <string name="otp_verification_register">Get New OTP</string>
     <string name="enter_the_6_digit_code_sent_to_you_at">Input Contact No To Get Verification Code</string>
-    <string name="_123_456">123 456</string>
-    <string name="edit">Edit</string>
     <string name="submit">Submit</string>
-    <string name="resend_code_in_02_59">Resend Code in 02:59</string>
     <string name="create_new_password">Create New Password</string>
     <string name="re_enter_new_password">Re-Enter New Password</string>
     <string name="enter_new_password">Enter New Password</string>
@@ -28,47 +34,27 @@
     <string name="_1234">1234</string>
     <string name="resetting_password">Resetting Password</string>
     <string name="phone_number">Phone Number</string>
-    <string name="ek_img_content">ExportKit Image</string>
-    <string name="_11_04_pm_string">11:04 PM</string>
-    <string name="_26_string">26</string>
-    <string name="good_morning__shaker_string">Good morning, Shaker</string>
     <string name="food_string">Food</string>
-    <string name="search_app_string">Search app</string>
-    <string name="slide_to_logout_string">Slide to logout</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_set_name">SetName</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
     <string name="setting__string">Setting</string>
     <string name="change_password__string">Change Password</string>
     <string name="notifications__string">Notifications</string>
     <string name="account__string">Account</string>
     <string name="privacy___about___string">Privacy &amp; About </string>
     <string name="request_feature_string">Request feature</string>
-    <string name="previous">Previous</string>
-    <string name="__91_98765_43210_string">+91 98765 43210</string>
-    <string name="name_string">Name</string>
-    <string name="geneder_string">Geneder</string>
-    <string name="______male_string">     Male</string>
-    <string name="i_accept_slifix_s_term_and_conditions___string">I accept Slifixs Term and Conditions </string>
-    <string name="read_more_string">Read more</string>
 
 
     <string name="name__string">Name</string>
-    <string name="shaker_muhammed___string">Shaker Muhammed </string>
     <string name="phone___string">Phone </string>
-    <string name="__8804658541155__string">+8804658541155</string>
     <string name="email__string">Email</string>
-    <string name="slifix_gmail_com__string">slifix@gmail.com</string>
     <string name="_save__string">Save</string>
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="on_delivery">On Delivery</string>
+    <string name="bkash">BKASH</string>
     <string-array name="Genders">
         <item>Male</item>
         <item>Female</item>
         <item>Others</item>
     </string-array>
-    <string name="title_activity_restaurant_food_menu">RestaurantFoodMenu</string>
 </resources>
