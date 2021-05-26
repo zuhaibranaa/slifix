@@ -54,7 +54,7 @@
         android:hint="@string/num_hint"
         android:inputType="phone"
         android:longClickable="false"
-        android:padding="2dp"
+        android:paddingLeft="25dp"
         android:textAlignment="textStart"
         android:textSize="14sp"
         tools:ignore="RtlCompat" />
@@ -76,7 +76,7 @@
         android:hint="@string/password"
         android:inputType="textPassword"
         android:longClickable="false"
-        android:padding="2dp"
+        android:paddingLeft="25dp"
         android:textAlignment="textStart"
         android:textSize="14sp"
         tools:ignore="RtlCompat" />

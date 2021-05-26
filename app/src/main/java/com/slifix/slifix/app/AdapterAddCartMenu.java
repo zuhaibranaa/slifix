@@ -49,13 +49,13 @@ public class AdapterAddCartMenu extends RecyclerView.Adapter<AdapterAddCartMenu.
     public void onBindViewHolder(AdapterAddCartMenu.ViewHolder holder, int position) {
         holder.itemName.setText (data.get (position).type+" "+data.get (position).name+" : "+data.get (position).size);
         holder.itemPrice.setText ("Rs."+data.get (position).price);
-        holder.removeItem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                holder.q = Integer.parseInt(holder.quantity.getText().toString());
+        holder.removeItem.setOnClickListener(v -> {
+            holder.q = Integer.parseInt(holder.quantity.getText().toString());
+            if (holder.q > 1){
                 holder.q--;
                 holder.quantity.setText(String.valueOf(holder.q));
-                Toast.makeText(ctx, String.valueOf(holder.q), Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText (ctx, "Forbidden", Toast.LENGTH_SHORT).show ();
             }
         });
         holder.addItem.setOnClickListener(new View.OnClickListener() {

@@ -7,7 +7,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
             <View
-                android:background="@drawable/rectangle_2189_shape"
+                android:background="@drawable/rectangle_43_shape"
                 android:layout_width="match_parent"
                 android:layout_height="66dp" />
 
@@ -20,7 +20,6 @@
                 android:textAlignment="center"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="120dp"
-                android:fontFamily="Segoe UI"
                 android:text="@string/setting__string"
                 android:textColor="@color/setting__color"
                 android:textSize="22sp"
@@ -42,7 +41,6 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="21dp" />
                 <TextView
-                    android:fontFamily="Segoe UI"
                     android:textStyle="bold"
                     android:textSize="20sp"
                     android:textColor="@color/change_password__color"
@@ -53,12 +51,12 @@
                     android:text="@string/account__string"
                     />
                 <ImageView
-                    android:src="@drawable/icon_awesome_chevron_circle_right"
+                    android:src="@drawable/chevron_right_circle"
                     android:contentDescription="icon_awesome_chevron_circle_right"
                     android:layout_marginStart="295dp"
                     android:layout_marginTop="11dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="295dp"
                     />
             </androidx.cardview.widget.CardView>
@@ -77,7 +75,6 @@
                         android:layout_height="50dp"
                         android:layout_marginLeft="21dp" />
                     <TextView
-                        android:fontFamily="Segoe UI"
                         android:textStyle="bold"
                         android:textSize="19sp"
                         android:textColor="@color/change_password__color"
@@ -114,7 +111,6 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="15dp" />
                 <TextView
-                    android:fontFamily="Segoe UI"
                     android:textStyle="bold"
                     android:textSize="19sp"
                     android:textColor="@color/change_password__color"
@@ -125,12 +121,12 @@
                     android:text="@string/change_password__string"
                     />
                 <ImageView
-                    android:src="@drawable/icon_awesome_arrow_circle_right"
+                    android:src="@drawable/arrow_right_circle"
                     android:contentDescription="icon_awesome_arrow_circle_right"
                     android:layout_marginLeft="295dp"
                     android:layout_marginTop="11dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_width="40dp"
+                    android:layout_height="40dp" />
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:id="@+id/Privacy"
@@ -150,7 +146,6 @@
                     android:layout_marginLeft="21dp" />
 
                 <TextView
-                    android:fontFamily="Segoe UI"
                     android:textStyle="bold"
                     android:textSize="20sp"
                     android:textColor="@color/change_password__color"
@@ -162,12 +157,12 @@
                     />
 
                 <ImageView
-                    android:src="@drawable/icon_awesome_chevron_circle_right_ek1"
+                    android:src="@drawable/chevron_right_circle"
                     android:contentDescription="icon_awesome_chevron_circle_right_ek1"
                     android:layout_marginLeft="295dp"
                     android:layout_marginTop="11dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_width="40dp"
+                    android:layout_height="40dp" />
 
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
@@ -188,7 +183,6 @@
                     android:layout_marginLeft="21dp" />
 
                 <TextView
-                    android:fontFamily="Segoe UI"
                     android:textStyle="bold"
                     android:textSize="20sp"
                     android:textColor="@color/change_password__color"
@@ -200,12 +194,12 @@
                     />
 
                 <ImageView
-                    android:src="@drawable/icon_awesome_chevron_circle_right_ek2"
+                    android:src="@drawable/chevron_right_circle"
                     android:contentDescription="icon_awesome_chevron_circle_right_ek2"
                     android:layout_marginStart="295dp"
                     android:layout_marginTop="11dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="295dp" />
 
             </androidx.cardview.widget.CardView>

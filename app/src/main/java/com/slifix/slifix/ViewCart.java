@@ -107,27 +107,6 @@ List<String> cartItems = new ArrayList<>();
                         Log.e("Error ", String.valueOf(e));
                     }
                 }
-
-
-
-
-//                for (int j = 0; j < cartItems.size() ; j++){
-//                    try {
-//                        String itemName = String.valueOf (cartItems.get (j));
-//                        obj3 = obj1[j].getJSONObject (itemName);
-//                        CartItems item = new CartItems ();
-//                        item.setName (itemName);
-//                        item.setId (obj3.getString ("ID"));
-//                        item.setType (obj3.getString ("type"));
-//                        item.setSize (obj3.getString ("Size"));
-//                        item.setPrice (obj3.getString ("Price"));
-//                        item.setQuantity (obj3.getString ("Quantity"));
-//                        cartItemsArrayList.add (item);
-//                    }
-//                    catch (JSONException e) {
-//                        Log.e("Error ",String.valueOf (e));
-//                    }
-//                }
                 ViewCart.setLayoutManager (new LinearLayoutManager (getApplicationContext ()));
                 ViewCart.setAdapter (new AdapterCartItems (cartItemsArrayList,getApplicationContext ()));
 

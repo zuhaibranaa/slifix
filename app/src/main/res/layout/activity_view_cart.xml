@@ -28,10 +28,12 @@
     android:layout_height="wrap_content"
     android:textSize="35sp"
     android:textStyle="bold"
+    android:textColor="@color/black"
     android:layout_marginTop="50dp"
     android:layout_marginLeft="20dp"
     android:text="Cart"/>
     <TextView
+        android:textColor="@color/black"
         android:id="@+id/deliveryFee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -40,6 +42,7 @@
         android:text="Delivery Fee"
         />
     <TextView
+        android:textColor="@color/black"
         android:id="@+id/billWithoutDeliveryFee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -57,6 +60,7 @@
         android:text="Total Items"
         />
     <TextView
+        android:textColor="@color/black"
         android:id="@+id/totalBillTopSide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -99,6 +103,7 @@
             android:layout_marginTop="30dp"
             android:textSize="35sp"
             android:textStyle="bold"
+            android:textColor="@color/black"
             android:text="Rs.1245"
             />
         <ImageView

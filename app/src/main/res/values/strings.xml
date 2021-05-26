@@ -30,7 +30,7 @@
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_set_name">SetName</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="setting__string">Setting</string>
+    <string name="setting__string">Settings</string>
     <string name="change_password__string">Change Password</string>
     <string name="notifications__string">Notifications</string>
     <string name="account__string">Account</string>

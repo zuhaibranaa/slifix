@@ -11,7 +11,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:text="@string/checkout_string"
-                android:textColor="@color/checkout_color"
+                android:textColor="@color/black"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
@@ -36,7 +36,7 @@
                 <TextView
                     android:textStyle="bold"
                     android:textSize="15sp"
-                    android:textColor="@color/checkout_color"
+                    android:textColor="@color/black"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     android:layout_width="wrap_content"
@@ -108,7 +108,7 @@
                 android:textColor="@color/add_promo_code_color"
                 android:layout_marginLeft="52dp"
                 android:layout_marginTop="342dp"
-                android:layout_width="114dp"
+                android:layout_width="wrap_content"
                 android:layout_height="30.5dp"
                 android:text="@string/add_promo_code_string"
                 />
@@ -170,6 +170,7 @@
             android:layout_marginTop="30dp"
             android:textSize="35sp"
             android:textStyle="bold"
+            android:textColor="@color/black"
             android:text="Rs.1245"
             />
         <ImageView
@@ -188,12 +189,12 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_centerInParent="true"
-            android:layout_marginEnd="34dp"
-            android:layout_marginRight="34dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="47dp"
+            android:layout_marginRight="47dp"
+            android:layout_marginBottom="13dp"
             android:text="Place Order"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="16dp" />
 
         <ImageView
             android:layout_width="23dp"
