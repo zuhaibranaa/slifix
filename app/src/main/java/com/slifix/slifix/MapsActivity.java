@@ -51,6 +51,8 @@ public class MapsActivity extends AppCompatActivity {
         }
         if (DataManager.getUserLatitude () != null){
             finish ();
+        }else {
+            Toast.makeText (this, "Top On A Location To Select", Toast.LENGTH_SHORT).show ();
         }
         search = findViewById(R.id.locSrch);
 

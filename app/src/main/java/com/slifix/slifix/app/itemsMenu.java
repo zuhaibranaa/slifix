@@ -1,8 +1,8 @@
 package com.slifix.slifix.app;
 
 public class itemsMenu {
-    String id;
-    String name;
+    public String id;
+    public String name;
 
     public String getName() {
         return name;
@@ -12,9 +12,9 @@ public class itemsMenu {
         this.name = name;
     }
 
-    String type;
-    String size;
-    String price;
+    public String type;
+    public String size;
+    public String price;
 
     public String getId() {
         return id;
