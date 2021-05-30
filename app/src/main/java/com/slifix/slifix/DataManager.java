@@ -3,30 +3,28 @@ package com.slifix.slifix;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
-import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
 public class DataManager extends Service {
-    private static String itemsInCart;
-
+    private static String userID,itemsInCart,userLatitude,phoneNumber,userLongitude,authToken,userName,activeRestaurantId,bill,activeRestaurantName,userLocation,userEmail;
     public static String getItemsInCart() {
         return itemsInCart;
     }
-
     public static void setItemsInCart(String itemsInCart) {
         DataManager.itemsInCart = itemsInCart;
     }
 
-    private static String phoneNumber;
-    private static String authToken;
-    private static String userName;
-    private static String activeRestaurantId;
-    private static String bill;
-    private static String activeRestaurantName;
-    private static String userLocation;
-    private static String userEmail;
+
+    public static String getUserID() {
+        return userID;
+    }
+
+    public static void setUserID(String userID) {
+        DataManager.userID = userID;
+    }
+
     public static String getUserLocation() {
         return userLocation;
     }
@@ -52,7 +50,6 @@ public class DataManager extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         authToken = phoneNumber = null;
-        Toast.makeText(this, "Service Started", Toast.LENGTH_SHORT).show();
         return START_STICKY;
     }
     public static String getActiveRestaurantName() {
@@ -78,7 +75,6 @@ public class DataManager extends Service {
     public static void setUserEmail(String userEmail) {
         DataManager.userEmail = userEmail;
     }
-    private static String userLatitude = "0",userLongitude = "0";
 
     public static String getUserName() {
         return userName;
@@ -122,7 +118,7 @@ public class DataManager extends Service {
 
     @Override
     public void onDestroy() {
-        Toast.makeText(this, "Service Destroyed", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "DataManager Destroyed", Toast.LENGTH_SHORT).show();
         super.onDestroy();
     }
 }

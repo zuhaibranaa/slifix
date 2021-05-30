@@ -2,30 +2,27 @@ package com.slifix.slifix;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-import com.android.volley.AuthFailureError;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.ebanx.swipebtn.OnActiveListener;
 import com.ebanx.swipebtn.SwipeButton;
 import com.slifix.slifix.app.VolleySingleton;
 import com.slifix.slifix.login.LoginScreen;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
 import static java.lang.Integer.parseInt;
 
 public class dashboard extends AppCompatActivity {
@@ -34,7 +31,7 @@ public class dashboard extends AppCompatActivity {
     public RequestQueue queue;
     public StringRequest req;
     public JSONObject obj;
-    CardView menu;
+    CardView menu,foodIco;
     int time;
     public static String gndr,categories;
     private static final SimpleDateFormat sdf1 = new SimpleDateFormat("HH");
@@ -43,7 +40,7 @@ public class dashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-        CardView foodIco = findViewById(R.id.FoodCard);
+        foodIco = findViewById(R.id.FoodCard);
         logout = findViewById(R.id.logout);
         menu = findViewById(R.id.MenuButton);
         txt = findViewById(R.id.good_morning__shaker);
@@ -58,8 +55,8 @@ public class dashboard extends AppCompatActivity {
             startActivity(it);
         });
         foodIco.setOnClickListener(v -> {
-            Intent it = new Intent(getApplicationContext(), MapsActivity.class);
-            startActivity(it);
+            Intent map = new Intent(getApplicationContext(), MapsActivity.class);
+            startActivity(map);
         });
     }
 
@@ -67,15 +64,15 @@ public class dashboard extends AppCompatActivity {
         String url = "https://slifixfood.herokuapp.com/get-categories/";
         queue = VolleySingleton.getInstance(this).getRequestQueue();
         req = new StringRequest(Request.Method.POST, url, response -> {
-            String jsonString =response ;
             try {
-                obj = new JSONObject(jsonString);
+                obj = new JSONObject(response);
             } catch (JSONException e) {
                 e.printStackTrace();
             }try {
                 DataManager.setUserName(obj.getString("username"));
                 gndr = obj.getString("gender");
                 categories = obj.getString("Category");
+                DataManager.setUserID (obj.getString ("Customer-Id"));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -97,13 +94,13 @@ public class dashboard extends AppCompatActivity {
         }){
             @Override
             protected Map<String,String> getParams(){
-                Map<String,String> params = new HashMap<String,String>();
+                Map<String,String> params = new HashMap<> ();
                 params.put("phone", DataManager.getPhoneNumber());
                 return params;
             }
             @Override
             public Map<String, String> getHeaders() {
-                HashMap<String, String> params = new HashMap<String, String>();
+                HashMap<String, String> params = new HashMap<> ();
                 params.put("Authorization", "Bearer "+DataManager.getAuthToken());
                 return params;
             }

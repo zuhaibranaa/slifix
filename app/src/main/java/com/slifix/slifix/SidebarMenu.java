@@ -30,15 +30,34 @@ RelativeLayout dashboard,myOrders,promo,customerSupport,rateOurApp,settings;
         settings = findViewById (R.id.Settings);
         // Text Setters
         userName.setText (DataManager.getUserName ());
+        userId.setText ("ID "+DataManager.getUserID ());
         // Listeners
         editProfile.setOnClickListener (v -> {
             startActivity (new Intent (getApplicationContext (),ChangeUsernameEmail.class));
             finish ();
         });
         dashboard.setOnClickListener (v -> {
-
             startActivity (new Intent (getApplicationContext (),dashboard.class));
             finish ();
+        });
+        settings.setOnClickListener (v -> {
+            startActivity (new Intent (getApplicationContext (),UserProfile.class));
+            finish ();
+        });
+        myOrders.setOnClickListener (v -> {
+            startActivity (new Intent (getApplicationContext (),AllOrders.class));
+            finish ();
+        });
+        promo.setOnClickListener (v -> {
+            Toast.makeText (this, "Promo", Toast.LENGTH_SHORT).show ();
+//            startActivity (new Intent (getApplicationContext (),));
+//            finish ();
+        });
+        customerSupport.setOnClickListener (v -> {
+            Toast.makeText (this, "Customer Support", Toast.LENGTH_SHORT).show ();
+        });
+        rateOurApp.setOnClickListener (v -> {
+            Toast.makeText (this, "Rate Our App", Toast.LENGTH_SHORT).show ();
         });
 
     }

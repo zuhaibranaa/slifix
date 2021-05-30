@@ -1,32 +1,33 @@
 package com.slifix.slifix.login;
 
 
-import android.content.Context;
 import android.content.Intent;
-import android.view.MotionEvent;
-import android.view.View;
+import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
-import com.android.volley.*;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
-import com.ebanx.swipebtn.OnActiveListener;
 import com.ebanx.swipebtn.SwipeButton;
+import com.slifix.slifix.DataManager;
 import com.slifix.slifix.R;
 import com.slifix.slifix.app.VolleySingleton;
-import com.slifix.slifix.DataManager;
 import com.slifix.slifix.dashboard;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class LoginScreen extends AppCompatActivity {
     TextView forgot;
     EditText number,pass;
-    public static String p,t;
+    public static String t;
     SwipeButton login,signup;
     JSONObject obj;
     StringRequest req;
@@ -36,39 +37,30 @@ public class LoginScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_screen);
-        number = (EditText) findViewById(R.id.number);
-        pass = (EditText) findViewById(R.id.input_pass);
-        signup = (SwipeButton) findViewById(R.id.signup);
-        login = (SwipeButton) findViewById(R.id.createPass);
-        forgot = (TextView) findViewById(R.id.forgot);
+        number = findViewById(R.id.number);
+        pass = findViewById(R.id.input_pass);
+        signup = findViewById(R.id.signup);
+        login = findViewById(R.id.createPass);
+        forgot = findViewById(R.id.forgot);
         if (DataManager.getAuthToken() != null){
+            finish ();
             Intent it = new Intent(getApplicationContext(),dashboard.class);
             startActivity(it);
         }
-        login.setOnActiveListener(new OnActiveListener() {
-            @Override
-            public void onActive() {
-                DataManager.setPhoneNumber("+"+number.getText().toString());
-                t = pass.getText().toString();
-                login();
-            }
+        login.setOnActiveListener(() -> {
+            DataManager.setPhoneNumber("+"+number.getText().toString());
+            t = pass.getText().toString();
+            login();
         });
-        forgot.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                Intent intent = new Intent(LoginScreen.this, ForgotPassword.class);
-                isForgot = true;
-                startActivity(intent);
-                return false;
-            }
+        forgot.setOnClickListener (v -> {
+            Intent intent = new Intent (LoginScreen.this, ForgotPassword.class);
+            isForgot = true;
+            LoginScreen.this.startActivity (intent);
         });
-        signup.setOnActiveListener(new OnActiveListener() {
-            @Override
-            public void onActive() {
-                Intent intent = new Intent(LoginScreen.this, OTP_Reg.class);
-                isForgot = false;
-                startActivity(intent);
-            }
+        signup.setOnActiveListener(() -> {
+            Intent intent = new Intent(LoginScreen.this, OTP_Reg.class);
+            isForgot = false;
+            startActivity(intent);
         });
 
     }
@@ -76,9 +68,8 @@ public class LoginScreen extends AppCompatActivity {
         String url = "https://slifixfood.herokuapp.com/login/";
         queue = VolleySingleton.getInstance(getApplicationContext()).getRequestQueue();
         req = new StringRequest(Request.Method.POST, url, response -> {
-            String jsonString =response ; //assign your JSON String here
             try {
-                obj = new JSONObject(jsonString);
+                obj = new JSONObject(response);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -92,20 +83,20 @@ public class LoginScreen extends AppCompatActivity {
                 finish();
                 startActivity(intent);
             }else {
-                Toast.makeText(LoginScreen.this, "Ooooops! There is an Error ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginScreen.this, "Check You Phone and Password", Toast.LENGTH_SHORT).show();
             }
         }, error -> {
         }){
             @Override
             protected Map<String,String> getParams(){
-                Map<String,String> params = new HashMap<String,String>();
+                Map<String,String> params = new HashMap<> ();
                 params.put("phone",DataManager.getPhoneNumber());
                 params.put("password",t);
                 return params;
             }
             @Override
             public Map<String,String> getHeaders() {
-                Map<String,String> params = new HashMap<String,String>();
+                Map<String,String> params = new HashMap<> ();
                 params.put("Content-Type","application/x-www-form-urlencoded");
                 return params;
             }
