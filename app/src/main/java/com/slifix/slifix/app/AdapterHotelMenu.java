@@ -51,7 +51,6 @@ public class AdapterHotelMenu extends RecyclerView.Adapter<AdapterHotelMenu.View
 
     @Override
     public int getItemCount() {
-//        return 1;
         return data.size();
     }
 

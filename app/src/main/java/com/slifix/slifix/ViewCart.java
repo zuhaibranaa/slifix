@@ -3,22 +3,26 @@ package com.slifix.slifix;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
-import com.slifix.slifix.app.AdapterCartItems;
 import com.slifix.slifix.app.CartItems;
 import com.slifix.slifix.app.VolleySingleton;
-import com.slifix.slifix.app.itemsMenu;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -108,7 +112,7 @@ List<String> cartItems = new ArrayList<>();
                     }
                 }
                 ViewCart.setLayoutManager (new LinearLayoutManager (getApplicationContext ()));
-                ViewCart.setAdapter (new AdapterCartItems (cartItemsArrayList,getApplicationContext ()));
+                ViewCart.setAdapter (new AdapterCartItems ());
 
             } catch (JSONException e) {
                 e.printStackTrace ();
@@ -131,6 +135,99 @@ List<String> cartItems = new ArrayList<>();
             }
         };
         queue.add(req);
+    }
+
+
+    public class AdapterCartItems extends RecyclerView.Adapter<AdapterCartItems.ViewHolder> {
+
+        @NonNull
+        @Override
+        public AdapterCartItems.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+            View v = inflater.inflate(R.layout.view_cart_items,parent,false);
+            return new ViewHolder(v);
+        }
+
+        @Override
+        public void onBindViewHolder(AdapterCartItems.ViewHolder holder, int position) {
+            holder.itemName.setText (cartItemsArrayList.get (position).type+" "+cartItemsArrayList.get (position).size);
+            holder.quantity.setText (cartItemsArrayList.get (position).quantity);
+            holder.itemPrice.setText ("Rs."+cartItemsArrayList.get (position).price);
+            holder.deleteItem.setOnClickListener (new View.OnClickListener () {
+                @Override
+                public void onClick(View v) {
+                    deleteItem();
+                }
+
+                private void deleteItem() {
+                    String url = "https://slifixfood.herokuapp.com/remove-cart/";
+                    holder.queue = VolleySingleton.getInstance(getApplicationContext ()).getRequestQueue();
+                    holder.req = new StringRequest (Request.Method.POST, url, response -> {
+                        JSONObject object = new JSONObject ();
+                        try {
+                            object = new JSONObject (response);
+                        } catch (JSONException e) {
+                            e.printStackTrace ();
+                        }
+                        try {
+                            if ((object.getString ("status").equals ("200")))
+                                Toast.makeText(getApplicationContext (), "Items Deleted", Toast.LENGTH_SHORT).show();
+                        } catch (JSONException e) {
+                            e.printStackTrace ();
+                        }
+                        remove(position);
+                    }, error -> {
+
+                    }){
+                        @Override
+                        protected Map<String,String> getParams(){
+                            Map<String,String> params = new HashMap<String,String> ();
+                            params.put("phone", DataManager.getPhoneNumber());
+                            params.put("item_id",String.valueOf(cartItemsArrayList.get (position).id));
+                            return params;
+                        }
+                        @Override
+                        public Map<String, String> getHeaders() throws AuthFailureError {
+                            HashMap<String, String> params = new HashMap<String, String>();
+                            params.put("Authorization", "Bearer "+DataManager.getAuthToken());
+                            return params;
+                        }
+                    };
+                    holder.queue.add(holder.req);
+                }
+            });
+
+        }
+
+        @Override
+        public int getItemCount() {
+            if (cartItemsArrayList.size () == 0){
+                Toast.makeText (ViewCart.this, "No Item In Cart", Toast.LENGTH_SHORT).show ();
+                finish ();
+            }
+            return cartItemsArrayList.size();
+        }
+        public void remove(int position){
+            cartItemsArrayList.remove (position);
+            notifyItemRemoved (position);
+            notifyDataSetChanged();
+            recreate ();
+        }
+
+        public class ViewHolder extends RecyclerView.ViewHolder{
+            public TextView itemName,itemPrice,quantity;
+            ImageView deleteItem;
+            RequestQueue queue;
+            StringRequest req;
+            public ViewHolder(View itemView) {
+                super(itemView);
+                itemName = itemView.findViewById(R.id.cartViewItemFragmentTitle);
+                itemPrice = itemView.findViewById(R.id.cartViewFragmentPrice);
+                quantity = itemView.findViewById(R.id.cartViewFragmentQuantity);
+                deleteItem = itemView.findViewById (R.id.deleteButton);
+
+            }
+        }
     }
 
 }

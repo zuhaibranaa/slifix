@@ -29,12 +29,7 @@ TextView restaurantName;
         showCart = findViewById (R.id.showCartCreateOrder);
         restaurantName = findViewById (R.id.restaurantName);
         restaurantName.setText (DataManager.getActiveRestaurantName ());
-        backbtn.setOnClickListener (new View.OnClickListener () {
-            @Override
-            public void onClick(View v) {
-                finish ();
-            }
-        });
+        backbtn.setOnClickListener (v -> finish ());
         showCart.setOnClickListener (new View.OnClickListener () {
             @Override
             public void onClick(View v) {

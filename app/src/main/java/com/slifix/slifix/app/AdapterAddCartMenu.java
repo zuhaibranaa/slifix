@@ -83,7 +83,7 @@ public class AdapterAddCartMenu extends RecyclerView.Adapter<AdapterAddCartMenu.
                         public void onResponse(String response) {
                             String jsonString =response ;
                             Toast.makeText(ctx, "Cart Updated", Toast.LENGTH_SHORT).show();
-                            holder.quantity.setText ("0");
+                            holder.quantity.setText ("1");
                         }
                     }, new Response.ErrorListener() {
                         @Override

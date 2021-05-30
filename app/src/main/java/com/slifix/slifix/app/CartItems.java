@@ -1,7 +1,7 @@
 package com.slifix.slifix.app;
 
 public class CartItems {
-    String id;
+    public String id;
     String name;
 
     public String getName() {
@@ -12,10 +12,10 @@ public class CartItems {
         this.name = name;
     }
 
-    String type;
-    String price;
-    String size;
-    String quantity;
+    public String type;
+    public String price;
+    public String size;
+    public String quantity;
 
     public String getId() {
         return id;

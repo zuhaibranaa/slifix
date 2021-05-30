@@ -28,7 +28,7 @@ RequestQueue queue;
 StringRequest req;
 JSONObject obj,obj1;
 RecyclerView allOrders;
-ArrayList<Orders> allOrdersArrayList;
+ArrayList<Orders> allOrdersArrayList = new ArrayList<> ();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);

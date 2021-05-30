@@ -17,8 +17,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Slifix">
-        <activity android:name=".AllOrders"></activity>
-        <activity android:name=".OrderPlacedScreen"></activity>
+        <activity android:name=".SidebarMenu"></activity>
+        <activity android:name=".AllOrders" />
+        <activity android:name=".OrderPlacedScreen" />
         <activity android:name=".Checkout" />
 
         <service

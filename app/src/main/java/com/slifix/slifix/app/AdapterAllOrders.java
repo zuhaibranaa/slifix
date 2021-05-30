@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -33,6 +34,9 @@ public class AdapterAllOrders extends RecyclerView.Adapter<AdapterAllOrders.View
 
     @Override
     public void onBindViewHolder(@NonNull AdapterAllOrders.ViewHolder holder, int position) {
+        holder.orderNumber.setText ("Order : # "+data.get (position).order);
+        holder.orderDetails.setText ("Total Bill : "+data.get (position).bill);
+        holder.orderDate.setText ("Order Date : "+data.get (position).date);
 
     }
 
@@ -43,14 +47,14 @@ public class AdapterAllOrders extends RecyclerView.Adapter<AdapterAllOrders.View
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
-        public TextView itemName,itemPrice,itemCategory;
-        RelativeLayout itemLayout;
+        public TextView orderDate,orderDetails,orderNumber;
+        ImageView orderImage;
         public ViewHolder(View itemView) {
             super(itemView);
-            itemName = itemView.findViewById(R.id.menuItemSelectorName);
-            itemPrice = itemView.findViewById(R.id.menuItemSelectorValue);
-            itemCategory = itemView.findViewById (R.id.menuItemSelectorCategory);
-            itemLayout = itemView.findViewById (R.id.itemLayout);
+            orderDate = itemView.findViewById(R.id.orderDate);
+            orderDetails = itemView.findViewById(R.id.orderDetails);
+            orderNumber = itemView.findViewById (R.id.orderNumber);
+            orderImage = itemView.findViewById (R.id.orderImage);
         }
     }
 }

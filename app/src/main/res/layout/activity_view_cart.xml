@@ -50,7 +50,6 @@
         android:textSize="25dp"
         android:textStyle="bold"
         android:layout_marginTop="110dp"
-        android:text="Rs.1220"
         />
     <TextView
         android:layout_width="wrap_content"
@@ -69,7 +68,6 @@
         android:layout_marginTop="100dp"
         android:textStyle="bold"
         android:textSize="25sp"
-        android:text="Rs 1245"
         />
     <TextView
         android:layout_width="wrap_content"
@@ -104,7 +102,6 @@
             android:textSize="35sp"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:text="Rs.1245"
             />
         <ImageView
             android:id="@+id/checkOutBtn"

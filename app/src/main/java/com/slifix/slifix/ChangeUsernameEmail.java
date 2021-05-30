@@ -56,7 +56,11 @@ public class ChangeUsernameEmail extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DataManager.setUserName(name.getText().toString());
+                if (name.getText ().toString ().length () >= 15){
+                    Toast.makeText (ChangeUsernameEmail.this, "Name Cannot Be More Than 14 Characters", Toast.LENGTH_SHORT).show ();
+                }else{
+                    DataManager.setUserName(name.getText().toString());
+                }
                 DataManager.setUserEmail(email.getText().toString());
                 DataManager.setPhoneNumber(phone.getText().toString());
                 changeUserData();
@@ -77,12 +81,7 @@ public class ChangeUsernameEmail extends AppCompatActivity {
                         Toast.makeText (ChangeUsernameEmail.this, response, Toast.LENGTH_SHORT).show ();
                     }
                 }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    Log.e("Error",String.valueOf(error));
-                }
-            }){
+            }, error -> Log.e("Error",String.valueOf(error))){
                 @Override
                 protected Map<String,String> getParams(){
                     Map<String,String> params = new HashMap<String,String>();
@@ -114,12 +113,7 @@ public class ChangeUsernameEmail extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(ChangeUsernameEmail.this, String.valueOf(error), Toast.LENGTH_SHORT).show();
-            }
-        }){
+        }, error -> Toast.makeText(ChangeUsernameEmail.this, String.valueOf(error), Toast.LENGTH_SHORT).show()){
             @Override
             protected Map<String,String> getParams(){
                 Map<String,String> params = new HashMap<String,String>();
@@ -127,7 +121,7 @@ public class ChangeUsernameEmail extends AppCompatActivity {
                 return params;
             }
             @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
+            public Map<String, String> getHeaders() {
                 HashMap<String, String> params = new HashMap<String, String>();
                 params.put("Authorization", "Bearer "+DataManager.getAuthToken());
                 return params;

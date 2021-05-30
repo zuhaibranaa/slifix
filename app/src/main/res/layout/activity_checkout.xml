@@ -77,8 +77,8 @@
                     android:textColor="@color/checkout_color"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="0dp"
-                    android:layout_width="118dp"
-                    android:layout_height="24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/page_title_ek1_string"
                     />
 

@@ -9,8 +9,24 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 
 public class DataManager extends Service {
-    private static String phoneNumber,authToken,userName,activeRestaurantId,bill,activeRestaurantName,userLocation,userEmail;
+    private static String itemsInCart;
 
+    public static String getItemsInCart() {
+        return itemsInCart;
+    }
+
+    public static void setItemsInCart(String itemsInCart) {
+        DataManager.itemsInCart = itemsInCart;
+    }
+
+    private static String phoneNumber;
+    private static String authToken;
+    private static String userName;
+    private static String activeRestaurantId;
+    private static String bill;
+    private static String activeRestaurantName;
+    private static String userLocation;
+    private static String userEmail;
     public static String getUserLocation() {
         return userLocation;
     }
@@ -62,7 +78,7 @@ public class DataManager extends Service {
     public static void setUserEmail(String userEmail) {
         DataManager.userEmail = userEmail;
     }
-    private static String userLatitude = "10",userLongitude = "5";
+    private static String userLatitude = "0",userLongitude = "0";
 
     public static String getUserName() {
         return userName;

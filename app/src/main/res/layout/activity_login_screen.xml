@@ -51,7 +51,7 @@
         android:background="@drawable/textbox"
         android:fontFamily="@font/poppins"
         android:gravity="center_horizontal|center_vertical"
-        android:hint="@string/num_hint"
+        android:hint="Phone"
         android:inputType="phone"
         android:longClickable="false"
         android:paddingLeft="25dp"

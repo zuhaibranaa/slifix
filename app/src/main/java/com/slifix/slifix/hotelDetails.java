@@ -75,6 +75,7 @@ ImageView homeBtn;
                 statusTime.setText(obj.getString("open Time"));
                 deliveryTime.setText(obj.getString("Delivery Time")+" min");
                 deliveryFee.setText("Delivery Fee Rs."+obj.getString("Delivery Fee"));
+                DataManager.setItemsInCart (obj.getString ("Number of items in cart"));
                 JSONArray arr= new JSONArray(obj.getString("Menu"));
 
                 obj1 = new JSONObject[arr.length ()];

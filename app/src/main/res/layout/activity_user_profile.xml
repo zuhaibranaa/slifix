@@ -53,12 +53,11 @@
                 <ImageView
                     android:src="@drawable/chevron_right_circle"
                     android:contentDescription="icon_awesome_chevron_circle_right"
-                    android:layout_marginStart="295dp"
+                    android:layout_marginStart="310dp"
                     android:layout_marginTop="11dp"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_marginLeft="295dp"
-                    />
+                    android:layout_marginLeft="330dp" />
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:layout_marginTop="152dp"
@@ -87,8 +86,8 @@
                     <Switch
                     android:id="@+id/notificationSwitch"
                     android:layout_marginTop="11dp"
-                    android:layout_marginStart="289dp"
-                    android:layout_marginLeft="295dp"
+                    android:layout_marginStart="310dp"
+                    android:layout_marginLeft="310dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
@@ -123,7 +122,7 @@
                 <ImageView
                     android:src="@drawable/arrow_right_circle"
                     android:contentDescription="icon_awesome_arrow_circle_right"
-                    android:layout_marginLeft="295dp"
+                    android:layout_marginLeft="310dp"
                     android:layout_marginTop="11dp"
                     android:layout_width="40dp"
                     android:layout_height="40dp" />
@@ -159,7 +158,7 @@
                 <ImageView
                     android:src="@drawable/chevron_right_circle"
                     android:contentDescription="icon_awesome_chevron_circle_right_ek1"
-                    android:layout_marginLeft="295dp"
+                    android:layout_marginLeft="310dp"
                     android:layout_marginTop="11dp"
                     android:layout_width="40dp"
                     android:layout_height="40dp" />
@@ -196,11 +195,11 @@
                 <ImageView
                     android:src="@drawable/chevron_right_circle"
                     android:contentDescription="icon_awesome_chevron_circle_right_ek2"
-                    android:layout_marginStart="295dp"
+                    android:layout_marginStart="310dp"
                     android:layout_marginTop="11dp"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_marginLeft="295dp" />
+                    android:layout_marginLeft="310dp" />
 
             </androidx.cardview.widget.CardView>
             <ImageView
