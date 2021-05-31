@@ -1,13 +1,11 @@
 package com.slifix.slifix;
 
 import android.Manifest;
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
-import android.location.LocationManager;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -50,6 +48,7 @@ public class MapsActivity extends AppCompatActivity {
             finish();
         }
         if (DataManager.getUserLatitude () != null){
+            startActivity (new Intent (getApplicationContext (),FoodDashboard.class));
             finish ();
         }else {
             Toast.makeText (this, "Top On A Location To Select", Toast.LENGTH_SHORT).show ();
@@ -110,6 +109,7 @@ public class MapsActivity extends AppCompatActivity {
     private void setMapLongClick(final GoogleMap map) {
         map.setOnMapClickListener(latLng -> {
             map.clear();
+            finish ();
             String snippet = String.format(Locale.getDefault(),
                     "Lat: %1$.5f, Long: %2$.5f",
                     latLng.latitude,

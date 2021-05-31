@@ -137,7 +137,8 @@ public JSONObject obj;
                     holder.req = new StringRequest (Request.Method.POST, url, response -> {
                         Toast.makeText(getApplicationContext (), "Cart Updated", Toast.LENGTH_SHORT).show();
                         holder.quantity.setText ("1");
-                        recreate ();
+                        startActivity (new Intent (getApplicationContext (),createOrder.class));
+                        finish ();
                     }, error -> {
 
                     }){

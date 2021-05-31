@@ -34,12 +34,15 @@
             android:contentDescription="icon_ionic_ios_arrow_back"
             android:src="@drawable/ic_baseline_shopping_cart_24" />
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="20dp"
             android:background="@drawable/text_box_round_colored"
             android:textSize="12sp"
+            android:padding="2dp"
+            android:textAlignment="center"
             android:textColor="@color/white"
-            android:layout_height="wrap_content"
-            android:id="@+id/cartCount"/>
+            android:layout_height="20dp"
+            android:id="@+id/cartCount"
+            android:gravity="center_horizontal" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView

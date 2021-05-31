@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="150dp"
         android:text="Delivery Fee"
         />
     <TextView
@@ -52,8 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="130dp"
-        android:text="Delivery Fee"
+        android:layout_marginTop="170dp"
         />
     <TextView
         android:textColor="@color/black"
@@ -80,7 +79,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="100dp"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="100dp"
         android:textStyle="bold"
         android:textSize="25sp"
@@ -101,7 +100,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/bottomButtons"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="175dp"
+        android:layout_marginTop="195dp"
         android:layout_marginBottom="10dp" />
 
     <RelativeLayout

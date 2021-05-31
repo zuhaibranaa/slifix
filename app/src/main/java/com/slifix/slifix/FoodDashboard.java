@@ -35,7 +35,7 @@ public class FoodDashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_dashboard);
         activityImage = findViewById(R.id.menuImage);
-        Intent it = new Intent(this,UserProfile.class);
+        Intent it = new Intent(this,SidebarMenu.class);
         activityImage.setOnClickListener(v -> startActivity(it));
         //Food Types
 //        recyclerViewsm = (RecyclerView) findViewById(R.id.smallItems);
