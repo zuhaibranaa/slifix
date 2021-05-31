@@ -76,7 +76,6 @@ ImageView homeBtn;
                 deliveryTime.setText(obj.getString("Delivery Time")+" min");
                 deliveryFee.setText("Delivery Fee Rs."+obj.getString("Delivery Fee"));
                 DataManager.setItemsInCart (obj.getString ("Number of items in cart"));
-                Toast.makeText (this, DataManager.getItemsInCart (), Toast.LENGTH_SHORT).show ();
                 JSONArray arr= new JSONArray(obj.getString("Menu"));
 
                 obj1 = new JSONObject[arr.length ()];
@@ -129,7 +128,6 @@ ImageView homeBtn;
             protected Map<String,String> getParams(){
                 Map<String,String> params = new HashMap<>();
                 params.put("id",DataManager.getActiveRestaurantId());
-                params.put("phone", DataManager.getPhoneNumber ());
                 return params;
             }
             @Override

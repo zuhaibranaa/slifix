@@ -26,6 +26,8 @@
 <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
     android:textSize="35sp"
     android:textStyle="bold"
     android:textColor="@color/black"
@@ -34,11 +36,23 @@
     android:text="Cart"/>
     <TextView
         android:textColor="@color/black"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="110dp"
+        android:text="Delivery Fee"
+        />
+    <TextView
+        android:textColor="@color/black"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
         android:id="@+id/deliveryFee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="170dp"
+        android:layout_marginTop="130dp"
         android:text="Delivery Fee"
         />
     <TextView
@@ -52,6 +66,8 @@
         android:layout_marginTop="110dp"
         />
     <TextView
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
@@ -63,31 +79,36 @@
         android:id="@+id/totalBillTopSide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="260dp"
-        android:layout_marginRight="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="100dp"
         android:layout_marginTop="100dp"
         android:textStyle="bold"
         android:textSize="25sp"
         />
     <TextView
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="260dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="50dp"
         android:layout_marginTop="85dp"
         android:text="Total Bill"
         />
-<androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/viewCartRV"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="200dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/viewCartRV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottomButtons"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="175dp"
+        android:layout_marginBottom="10dp" />
 
     <RelativeLayout
+        android:id="@+id/bottomButtons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="0dp">
+        android:layout_alignParentBottom="true">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

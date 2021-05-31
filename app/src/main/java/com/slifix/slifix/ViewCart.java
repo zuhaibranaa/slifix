@@ -58,7 +58,10 @@ List<String> cartItems = new ArrayList<>();
         deliveryFee = findViewById (R.id.deliveryFee);
         getData();
 
-        backBtn.setOnClickListener (v -> finish ());
+        backBtn.setOnClickListener (v -> {
+            finish ();
+            startActivity (new Intent (getApplicationContext (),createOrder.class));
+        });
         checkoutBtn.setOnClickListener (v -> {
             startActivity (new Intent (this,Checkout.class));
             finish ();
