@@ -7,7 +7,6 @@
     <string name="login">Login</string>
     <string name="forgot">Forgot Password?</string>
     <string name="num_hint">91 98765 43210</string>
-    <string name="password">Password</string>
     <string name="todo">TODO</string>
     <string name="gender">Gender</string>
     <string name="name">Name</string>
@@ -48,6 +47,8 @@
     <string name="plus">+</string>
     <string name="_1">1</string>
     <string name="update">update</string>
+    <string name="password">Password</string>
+    <string name="phone">Phone</string>
     <string-array name="Genders">
         <item>Male</item>
         <item>Female</item>

@@ -42,17 +42,18 @@
 
             <TextView
                 android:id="@+id/cartFragmentQuantity"
-                android:layout_alignParentLeft="true"
                 android:layout_width="50dp"
                 android:layout_height="30dp"
-                android:layout_marginLeft="30dp"
                 android:layout_marginTop="35dp"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                android:text="@string/_1"
+                android:layout_marginEnd="160dp"
+                android:layout_marginRight="160dp"
+                android:layout_toStartOf="@+id/updateCart"
+                android:layout_toLeftOf="@+id/updateCart"
                 android:background="@drawable/textboxround"
                 android:gravity="center_horizontal"
-                android:layout_marginStart="30dp" />
+                android:text="@string/_1"
+                android:textAlignment="center"
+                android:textSize="16sp" />
 
 
             <TextView
@@ -68,37 +69,41 @@
                 android:gravity="center"
                 android:layout_marginRight="10dp"
                 android:layout_marginEnd="10dp" />
+
             <TextView
                 android:id="@+id/cartFragmentAddBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="125dp"
+                android:layout_marginLeft="235dp"
                 android:layout_marginTop="33dp"
-                android:textAlignment="center"
-                android:textSize="25sp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_toStartOf="@+id/updateCart"
+                android:layout_toLeftOf="@+id/updateCart"
                 android:background="@drawable/aa"
-                android:textColor="@color/white"
-                android:text="@string/plus"
                 android:gravity="center_horizontal"
-                android:layout_marginStart="135dp" />
+                android:text="@string/plus"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
+
             <TextView
                 android:id="@+id/cartFragmentRemoveBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginLeft="95dp"
                 android:layout_marginTop="33dp"
-
-                android:textAlignment="center"
-                android:textSize="25sp"
-                android:textColor="@color/white"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_toStartOf="@+id/cartFragmentAddBtn"
+                android:layout_toLeftOf="@+id/cartFragmentAddBtn"
                 android:background="@drawable/aqw"
-                android:text="@string/minus"
                 android:gravity="center_horizontal"
-                tools:ignore="RelativeOverlap,RtlCompat"
-                android:layout_marginStart="95dp" />
+                android:text="@string/minus"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                tools:ignore="RelativeOverlap,RtlCompat" />
             <TextView
                 android:id="@+id/itemsInCartCounter"
                 android:layout_alignParentEnd="true"

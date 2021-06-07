@@ -75,5 +75,17 @@
         </androidx.cardview.widget.CardView>
 
     </RelativeLayout>
+    <ImageButton
+        android:id="@+id/geoLocate"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/app"
+        android:src="@drawable/ic_baseline_my_location_24" />
 
 </RelativeLayout>

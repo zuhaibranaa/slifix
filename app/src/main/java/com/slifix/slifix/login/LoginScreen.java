@@ -13,6 +13,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.ebanx.swipebtn.SwipeButton;
+import com.google.android.material.textfield.TextInputEditText;
 import com.slifix.slifix.DataManager;
 import com.slifix.slifix.R;
 import com.slifix.slifix.app.VolleySingleton;
@@ -26,7 +27,7 @@ import java.util.Map;
 
 public class LoginScreen extends AppCompatActivity {
     TextView forgot;
-    EditText number,pass;
+    TextInputEditText pass,number;
     public static String t;
     SwipeButton login,signup;
     JSONObject obj;

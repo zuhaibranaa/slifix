@@ -1,6 +1,11 @@
 package com.slifix.slifix;
 
+import android.app.AlertDialog;
+import android.content.BroadcastReceiver;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.location.LocationManager;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +41,7 @@ public class dashboard extends AppCompatActivity {
     public static String gndr,categories;
     private static final SimpleDateFormat sdf1 = new SimpleDateFormat("HH");
     Date date;
+    private BroadcastReceiver MyReceiver = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +53,7 @@ public class dashboard extends AppCompatActivity {
         getUData();
         date = new Date();
         time = parseInt(sdf1.format(date.getTime()));
-        menu.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(),SidebarMenu.class)));
+        menu.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(),UserProfile.class)));
         logout.setOnActiveListener(() -> {
             DataManager.setAuthToken(null);
             Intent it = new Intent(getApplicationContext(), LoginScreen.class);
@@ -55,10 +61,32 @@ public class dashboard extends AppCompatActivity {
             startActivity(it);
         });
         foodIco.setOnClickListener(v -> {
-            Intent map = new Intent(getApplicationContext(), MapsActivity.class);
-            startActivity(map);
+            LocationManager manager = (LocationManager) getSystemService(LOCATION_SERVICE );
+            if ( !manager.isProviderEnabled( LocationManager.GPS_PROVIDER ) ) {
+                buildAlertMessageNoGps();
+            }else{
+                MyReceiver = new MyReceiver();
+                registerReceiver(MyReceiver, new IntentFilter (ConnectivityManager.CONNECTIVITY_ACTION));
+                Intent map = new Intent(getApplicationContext(), MapsActivity.class);
+                startActivity(map);
+            }
         });
     }
+    private void buildAlertMessageNoGps() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Enable GPS To Use This Application?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", (dialog, id) -> {
+                    startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                })
+                .setNegativeButton("No", (dialog, id) -> {
+                    dialog.cancel();
+                    finish ();
+                });
+        final AlertDialog alert = builder.create();
+        alert.show();
+    }
+
 
     void getUData(){
         String url = "https://slifixfood.herokuapp.com/get-categories/";

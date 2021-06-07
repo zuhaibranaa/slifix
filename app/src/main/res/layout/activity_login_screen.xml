@@ -37,49 +37,66 @@
         android:textSize="38sp"
         android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/number"
-        android:layout_width="300dp"
-        android:layout_height="52dp"
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="46.5dp"
         android:layout_marginTop="220dp"
         android:layout_marginEnd="46.5dp"
-        android:height="40dp"
-        android:background="@drawable/textbox"
-        android:fontFamily="@font/poppins"
-        android:gravity="center_horizontal|center_vertical"
-        android:hint="Phone"
-        android:inputType="phone"
-        android:longClickable="false"
-        android:paddingLeft="25dp"
-        android:textAlignment="textStart"
-        android:textSize="14sp"
-        tools:ignore="RtlCompat" />
+        android:hint="@string/phone"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            app:errorEnabled="true" />
 
-    <EditText
-        android:id="@+id/input_pass"
-        android:layout_width="300dp"
-        android:layout_height="52dp"
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TextInputLayout_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="46.5dp"
         android:layout_marginTop="280dp"
         android:layout_marginEnd="46.5dp"
-        android:height="40dp"
-        android:background="@drawable/textbox"
-        android:fontFamily="@font/poppins"
-        android:gravity="center_horizontal|center_vertical"
         android:hint="@string/password"
-        android:inputType="textPassword"
-        android:longClickable="false"
-        android:paddingLeft="25dp"
-        android:textAlignment="textStart"
-        android:textSize="14sp"
-        tools:ignore="RtlCompat" />
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:passwordToggleEnabled="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            app:errorEnabled="true" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <com.ebanx.swipebtn.SwipeButton
         android:id="@+id/createPass"

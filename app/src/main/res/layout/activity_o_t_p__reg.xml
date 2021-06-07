@@ -7,6 +7,40 @@
     android:layout_height="match_parent"
     android:screenOrientation="portrait"
     tools:context=".login.OTP_Reg">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/backBtnOTP"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/app"/>
+        <ImageView
+            android:src="@drawable/ic_baseline_arrow_back_ios_24"
+            android:contentDescription="icon_ionic_ios_arrow_back"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="11dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@drawable/as"
+        android:src="@drawable/logo"
+        android:contentDescription="@string/todo"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true" />
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="150dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:gravity="center_horizontal"
@@ -33,7 +67,7 @@
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="200dp"
         android:gravity="center_horizontal"
         android:text="@string/enter_the_6_digit_code_sent_to_you_at"
         android:textColor="@color/black"
@@ -42,9 +76,10 @@
         android:fontFamily="@font/nunito_sans"/>
 
     <EditText
+        android:background="@drawable/textboxround"
         android:id="@+id/otpField"
         android:layout_width="350dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_above="@+id/otpSubmit"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"

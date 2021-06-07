@@ -9,6 +9,7 @@ import android.location.Location;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -31,6 +32,7 @@ import java.util.Locale;
 public class MapsActivity extends AppCompatActivity {
     SupportMapFragment supportMapFragment;
     FusedLocationProviderClient client;
+    ImageButton geoLocate;
     GoogleMap map = null;
     MarkerOptions options;
     Button search;
@@ -54,6 +56,7 @@ public class MapsActivity extends AppCompatActivity {
             Toast.makeText (this, "Top On A Location To Select", Toast.LENGTH_SHORT).show ();
         }
         search = findViewById(R.id.locSrch);
+        geoLocate = findViewById (R.id.geoLocate);
 
         sp = findViewById(R.id.searchPlaceEt);
         if (options != null){
@@ -72,6 +75,11 @@ public class MapsActivity extends AppCompatActivity {
             if (location != null) {
                 supportMapFragment.getMapAsync(googleMap -> {
                     googleMap.setMyLocationEnabled(true);
+                    geoLocate.setOnClickListener (v -> {
+                        googleMap.clear();
+                        latLng = new LatLng(location.getLatitude(), location.getLongitude());
+                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
+                    });
                     googleMap.clear();
                     latLng = new LatLng(location.getLatitude(), location.getLongitude());
                     googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
