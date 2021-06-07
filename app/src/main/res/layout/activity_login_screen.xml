@@ -10,6 +10,7 @@
     android:forceDarkAllowed="false"
     android:id="@+id/newpassword">
     <ImageView
+        android:transitionName="logoImage"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:background="@drawable/as"

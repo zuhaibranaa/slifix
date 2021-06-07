@@ -7,9 +7,11 @@
     android:screenOrientation="portrait"
     tools:context=".MainActivity" android:background="#1C3891">
     <ImageView
-        android:layout_width="340dp"
-        android:layout_height="317dp"
+        android:id="@+id/splashImage"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         app:srcCompat="@drawable/logo"
+        android:transitionName="logoImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
