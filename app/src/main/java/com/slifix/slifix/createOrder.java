@@ -67,6 +67,7 @@ public JSONObject obj;
                 e.printStackTrace();
             }try {
                 DataManager.setItemsInCart (obj.getString ("Number of items in cart"));
+                cartCount.setText (obj.getString ("Number of items in cart"));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -110,7 +111,7 @@ public JSONObject obj;
             holder.itemPrice.setText ("Rs."+ hotelDetails.items.get (position).price);
             holder.removeItem.setOnClickListener(v -> {
                 holder.q = Integer.parseInt(holder.quantity.getText().toString());
-                if (holder.q > 1){
+                if (holder.q >= 1){
                     holder.q--;
                     holder.quantity.setText(String.valueOf(holder.q));
                 }else{
@@ -118,9 +119,9 @@ public JSONObject obj;
                 }
             });
             holder.addItem.setOnClickListener(v -> {
-                holder.q = Integer.parseInt(holder.quantity.getText().toString());
-                holder.q++;
-                holder.quantity.setText(String.valueOf(holder.q));
+                    holder.q = Integer.parseInt(holder.quantity.getText().toString());
+                    holder.q++;
+                    holder.quantity.setText(String.valueOf(holder.q));
             });
             holder.saveToCart.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -128,17 +129,20 @@ public JSONObject obj;
                     holder.q = Integer.parseInt(holder.quantity.getText().toString());
                     holder.itemId = Integer.parseInt(hotelDetails.items.get(position).id);
                     holder.size = hotelDetails.items.get(position).size;
-                    saveCart();
+                    if(holder.q <= 0){
+                        Toast.makeText (createOrder.this, "Item Quantity Cannot Be 0 or less", Toast.LENGTH_SHORT).show ();
+                    }else{
+                        saveCart();
+                    }
                 }
 
                 private void saveCart() {
                     String url = "https://slifixfood.herokuapp.com/add-cart/";
                     holder.queue = VolleySingleton.getInstance(getApplicationContext ()).getRequestQueue();
                     holder.req = new StringRequest (Request.Method.POST, url, response -> {
-                        Toast.makeText(getApplicationContext (), "Cart Updated", Toast.LENGTH_SHORT).show();
-                        holder.quantity.setText ("1");
-                        finish ();
-                        startActivity (new Intent (getApplicationContext (),createOrder.class));
+                        holder.quantity.setText ("0");
+                        loadItems ();
+                        Toast.makeText (createOrder.this, "Cart Updated", Toast.LENGTH_SHORT).show ();
                     }, error -> {
 
                     }){

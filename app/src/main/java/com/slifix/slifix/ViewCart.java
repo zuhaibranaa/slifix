@@ -21,6 +21,8 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
+import com.ebanx.swipebtn.OnActiveListener;
+import com.ebanx.swipebtn.SwipeButton;
 import com.slifix.slifix.app.CartItems;
 import com.slifix.slifix.app.VolleySingleton;
 
@@ -36,7 +38,7 @@ import java.util.Map;
 
 public class ViewCart extends AppCompatActivity {
 CardView backBtn;
-ImageView checkoutBtn;
+SwipeButton checkoutBtn;
 TextView totalBillTop,totalBillBottom,billWithoutDeliveryFee,deliveryFee;
 RequestQueue queue;
 StringRequest req;
@@ -62,9 +64,9 @@ List<String> cartItems = new ArrayList<>();
             finish ();
             startActivity (new Intent (getApplicationContext (),createOrder.class));
         });
-        checkoutBtn.setOnClickListener (v -> {
-            startActivity (new Intent (this,Checkout.class));
-            finish ();
+        checkoutBtn.setOnActiveListener (() -> {
+            com.slifix.slifix.ViewCart.this.startActivity (new Intent (com.slifix.slifix.ViewCart.this, Checkout.class));
+            com.slifix.slifix.ViewCart.this.finish ();
         });
     }
 

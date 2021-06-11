@@ -1,11 +1,9 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:forceDarkAllowed="false"
-    android:layout_height="match_parent" >
-
-
+    android:layout_height="match_parent">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -49,7 +47,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:layout_marginRight="15dp"/>
+                    android:layout_marginRight="15dp"
+                    android:layout_marginEnd="15dp" />
 
 
                 <ImageView
@@ -71,6 +70,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="11dp">
 
+                <ImageView
+                    android:id="@+id/addressEdit"
+                    android:src="@drawable/ic_baseline_edit_24"
+                    android:contentDescription="ic_edit_24px_ek2"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="315.99951171875dp" />
+
+
                 <TextView
                     android:alpha="0.5"
                     android:textSize="12sp"
@@ -89,10 +100,30 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="20dp"
                     android:layout_width="131dp"
-                    android:layout_height="118.5dp"
+                    android:layout_height="wrap_content"
                     />
 
+                <EditText android:id="@+id/etAddress"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="@color/checkout_color"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="131dp"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/line"
+                    android:layout_marginBottom="2dp"
+                    android:text="Please Check And Confirm Your Address" />
+
                 <ImageView
+                    android:id="@+id/line"
                     android:src="@drawable/line_4"
                     android:contentDescription="line_4"
                     android:layout_marginStart="0dp"
@@ -155,56 +186,57 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="0dp">
+        android:background="@color/color_assets_5"
+        android:layout_alignParentBottom="true">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Total"
-            android:layout_marginLeft="30sp"
+            android:layout_marginLeft="40sp"
             android:textSize="20sp"/>
         <TextView
             android:id="@+id/totalBillCheckout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"
             android:textSize="35sp"
             android:textStyle="bold"
+            android:layout_marginBottom="10dp"
             android:textColor="@color/black"
             android:text="Rs.1245"
             />
-        <ImageView
+
+        <com.ebanx.swipebtn.SwipeButton
             android:id="@+id/PlaceOrderBtn"
-            android:layout_width="140dp"
-            android:layout_height="47dp"
+            android:layout_width="15dp"
+            android:layout_height="40dp"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="90dp"
+            android:layout_marginLeft="90dp"
             android:layout_marginTop="10dp"
-            android:src="@drawable/ic_baseline_view_agenda_24"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/PlaceOrderBtn"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_centerInParent="true"
-            android:layout_marginEnd="47dp"
-            android:layout_marginRight="47dp"
-            android:layout_marginBottom="13dp"
-            android:text="Place Order"
-            android:textColor="@color/white"
-            android:textSize="16dp" />
-
-        <ImageView
-            android:layout_width="23dp"
-            android:layout_height="23dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="140dp"
-            android:layout_marginTop="22dp"
-            android:background="@drawable/textboxround"
-            android:src="@drawable/ic_baseline_arrow_forward_ios_appcolor"/>
-
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="40dp"
+            android:layout_toEndOf="@+id/totalBillCheckout"
+            android:layout_toRightOf="@+id/totalBillCheckout"
+            app:button_background="@drawable/textboxround"
+            app:button_image_disabled="@drawable/ic_baseline_arrow_forward_ios_appcolor"
+            app:button_image_enabled="@drawable/ic_baseline_arrow_forward_ios_appcolor"
+            app:button_left_padding="2dp"
+            app:button_right_padding="2dp"
+            app:button_top_padding="3dp"
+            app:button_bottom_padding="3dp"
+            app:has_activate_state="true"
+            app:initial_state="disabled"
+            app:inner_text="Place Order"
+            app:inner_text_background="@drawable/square"
+            app:inner_text_bottom_padding="10dp"
+            app:inner_text_color="@color/white"
+            app:inner_text_size="8dp"
+            app:inner_text_left_padding="20dp"
+            app:inner_text_top_padding="10dp"
+            android:layout_alignParentEnd="true" />
     </RelativeLayout>
 
 

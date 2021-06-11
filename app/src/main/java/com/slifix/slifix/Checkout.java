@@ -1,63 +1,57 @@
 package com.slifix.slifix;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.recyclerview.widget.LinearLayoutManager;
-
+import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.location.Address;
-import android.location.Geocoder;
-import android.location.Location;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
-import com.slifix.slifix.app.AdapterHotelMenu;
+import com.ebanx.swipebtn.SwipeButton;
 import com.slifix.slifix.app.VolleySingleton;
-import com.slifix.slifix.app.itemsMenu;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.Locale;
 import java.util.Map;
 
 public class Checkout extends AppCompatActivity {
-ImageView btnPaymentSelector,placeOrder;
+ImageView btnPaymentSelector,editAddress;
+SwipeButton placeOrder;
 CardView backBtn;
+EditText address;
 TextView location,totalBill;
 RequestQueue queue;
 StringRequest req;
-    List<Address> loc;
+
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_checkout);
         btnPaymentSelector = findViewById (R.id.ic_edit_24px_ek1);
         backBtn = findViewById (R.id.backBtnCheckout);
+        address = findViewById (R.id.etAddress);
         placeOrder = findViewById (R.id.PlaceOrderBtn);
+        editAddress = findViewById (R.id.addressEdit);
         location = findViewById (R.id.shaker_shaker_no_123__sub_street___kharian__gurjat__punjab__pakistan);
         totalBill  =findViewById (R.id.totalBillCheckout);
         location.setText (DataManager.getUserLocation ());
         totalBill.setText ("Rs."+DataManager.getBill ());
-        backBtn.setOnClickListener (v -> {finish ();});
+        backBtn.setOnClickListener (v -> finish ());
+
+        address.setText (location.getText ());
+        editAddress.setOnClickListener (v-> {
+            Toast.makeText (this, "Edit", Toast.LENGTH_SHORT).show ();
+            address.setVisibility (View.VISIBLE);
+        });
         btnPaymentSelector.setOnClickListener (v -> {
             PopupMenu popupMenu = new PopupMenu (getApplicationContext (),btnPaymentSelector);
             popupMenu.getMenuInflater ().inflate (R.menu.payment_selector,popupMenu.getMenu ());
@@ -67,9 +61,7 @@ StringRequest req;
             });
             popupMenu.show ();
         });
-        placeOrder.setOnClickListener (v -> {
-            sendPlaceOrderRequestToServer();
-        });
+        placeOrder.setOnActiveListener (Checkout.this::sendPlaceOrderRequestToServer);
     }
 
     private void sendPlaceOrderRequestToServer() {
