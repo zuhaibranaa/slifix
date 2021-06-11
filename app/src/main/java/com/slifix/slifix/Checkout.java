@@ -23,14 +23,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Checkout extends AppCompatActivity {
-ImageView btnPaymentSelector,editAddress;
+ImageView btnPaymentSelector,editAddress,saveAddress;
 SwipeButton placeOrder;
 CardView backBtn;
 EditText address;
 TextView location,totalBill;
 RequestQueue queue;
 StringRequest req;
-
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +37,7 @@ StringRequest req;
         setContentView (R.layout.activity_checkout);
         btnPaymentSelector = findViewById (R.id.ic_edit_24px_ek1);
         backBtn = findViewById (R.id.backBtnCheckout);
+        saveAddress = findViewById (R.id.saveAddress);
         address = findViewById (R.id.etAddress);
         placeOrder = findViewById (R.id.PlaceOrderBtn);
         editAddress = findViewById (R.id.addressEdit);
@@ -46,12 +46,24 @@ StringRequest req;
         location.setText (DataManager.getUserLocation ());
         totalBill.setText ("Rs."+DataManager.getBill ());
         backBtn.setOnClickListener (v -> finish ());
-
         address.setText (location.getText ());
+
         editAddress.setOnClickListener (v-> {
-            Toast.makeText (this, "Edit", Toast.LENGTH_SHORT).show ();
             address.setVisibility (View.VISIBLE);
+            location.setVisibility (View.GONE);
+            editAddress.setVisibility (View.GONE);
+            saveAddress.setVisibility (View.VISIBLE);
         });
+        saveAddress.setOnClickListener (v -> {
+            address.setVisibility (View.GONE);
+            location.setVisibility (View.VISIBLE);
+            editAddress.setVisibility (View.VISIBLE);
+            saveAddress.setVisibility (View.GONE);
+            location.setText (address.getText ());
+        });
+
+
+
         btnPaymentSelector.setOnClickListener (v -> {
             PopupMenu popupMenu = new PopupMenu (getApplicationContext (),btnPaymentSelector);
             popupMenu.getMenuInflater ().inflate (R.menu.payment_selector,popupMenu.getMenu ());

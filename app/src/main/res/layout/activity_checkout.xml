@@ -70,16 +70,30 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="11dp">
 
+
                 <ImageView
-                    android:id="@+id/addressEdit"
-                    android:src="@drawable/ic_baseline_edit_24"
+                    android:id="@+id/saveAddress"
+                    android:src="@drawable/ic_baseline_done_24"
                     android:contentDescription="ic_edit_24px_ek2"
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     android:layout_marginLeft="315.99951171875dp" />
+
+
+                <ImageView
+                    android:id="@+id/addressEdit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="315.99951171875dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="15dp"
+                    android:contentDescription="ic_edit_24px_ek2"
+                    android:src="@drawable/ic_baseline_edit_24" />
 
 
                 <TextView
