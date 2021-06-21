@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.ebanx.swipebtn.SwipeButton;
 import com.google.android.material.textfield.TextInputEditText;
@@ -76,6 +77,9 @@ public class LoginScreen extends AppCompatActivity {
             }
             try {
                 DataManager.setAuthToken(obj.getString("token"));
+                DataManager.setUserName(obj.getString("user_nam"));
+                DataManager.setUserEmail (obj.getString ("user_email"));
+                DataManager.setUserImage ("https://slifixfood.herokuapp.com"+obj.getString ("image"));
             } catch (JSONException e) {
                 e.printStackTrace();
             }

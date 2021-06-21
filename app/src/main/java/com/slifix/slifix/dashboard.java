@@ -7,32 +7,30 @@ import android.content.IntentFilter;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.ebanx.swipebtn.SwipeButton;
 import com.slifix.slifix.app.VolleySingleton;
 import com.slifix.slifix.login.LoginScreen;
-
+import com.squareup.picasso.Picasso;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-
 import static java.lang.Integer.parseInt;
 
 public class dashboard extends AppCompatActivity {
     SwipeButton logout;
     TextView txt;
+    ImageView userProfilePic;
     public RequestQueue queue;
     public StringRequest req;
     public JSONObject obj;
@@ -46,6 +44,10 @@ public class dashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+        userProfilePic = findViewById (R.id.dashboardProfilePic);
+        Picasso.get()
+                .load(DataManager.getUserImage ())
+                .into(userProfilePic);
         foodIco = findViewById(R.id.FoodCard);
         logout = findViewById(R.id.logout);
         menu = findViewById(R.id.MenuButton);
@@ -97,7 +99,6 @@ public class dashboard extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }try {
-                DataManager.setUserName(obj.getString("username"));
                 gndr = obj.getString("gender");
                 categories = obj.getString("Category");
                 DataManager.setUserID (obj.getString ("Customer-Id"));
@@ -135,4 +136,5 @@ public class dashboard extends AppCompatActivity {
         };
         queue.add(req);
     }
-    }
+
+}

@@ -1,8 +1,9 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:forceDarkAllowed="false"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent" android:layout_height="match_parent" >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
             <ImageView
                 android:src="@drawable/path_1"
@@ -10,14 +11,18 @@
                 android:contentDescription="path_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-            <ImageView
-                android:layout_alignParentRight="true"
-                android:layout_alignParentLeft="true"
-                android:src="@drawable/ellipse_1"
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="50dp"
+                android:layout_centerHorizontal="true"
                 android:contentDescription="ellipse_1"
                 android:layout_marginTop="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_width="100dp"
+                android:layout_height="100dp">
+                <ImageView
+                    android:id="@+id/uProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </androidx.cardview.widget.CardView>
             <ImageView
                 android:id="@+id/icon_ionic_ios_arrow_back"
                 android:src="@drawable/icon_ionic_ios_arrow_back"

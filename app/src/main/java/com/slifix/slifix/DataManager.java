@@ -8,7 +8,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 
 public class DataManager extends Service {
-    private static String userID,itemsInCart,userLatitude,phoneNumber,userLongitude,authToken,userName,activeRestaurantId,bill,activeRestaurantName,userLocation,userEmail;
+    private static String userImage,userID,itemsInCart,userLatitude,phoneNumber,userLongitude,authToken,userName,activeRestaurantId,bill,activeRestaurantName,userLocation,userEmail;
     public static String getItemsInCart() {
         return itemsInCart;
     }
@@ -16,6 +16,13 @@ public class DataManager extends Service {
         DataManager.itemsInCart = itemsInCart;
     }
 
+    public static String getUserImage() {
+        return userImage;
+    }
+
+    public static void setUserImage(String userImage) {
+        DataManager.userImage = userImage;
+    }
 
     public static String getUserID() {
         return userID;
