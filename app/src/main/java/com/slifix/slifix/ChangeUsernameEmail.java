@@ -6,24 +6,18 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.util.Base64;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.karumi.dexter.Dexter;
@@ -40,7 +34,6 @@ import org.json.JSONObject;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -52,12 +45,7 @@ public class ChangeUsernameEmail extends AppCompatActivity {
     ImageView backBtn,userProfilePic;
     RequestQueue queue;
     StringRequest req;
-    ByteArrayOutputStream byteArrayOutputStream;
-    private String upload_URL = "https://slifixfood.herokuapp.com/edit-profile/";
-    JSONObject jsonObject;
-    RequestQueue rQueue;
     Bitmap bitmap;
-    String encodedImage = null;
     private final int GALLERY = 1;
 
     @Override
@@ -85,19 +73,16 @@ public class ChangeUsernameEmail extends AppCompatActivity {
             startActivityForResult(Intent.createChooser (galleryIntent,"Select Profile Picture"),GALLERY);
         });
 
-        btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (name.getText ().toString ().length () >= 15){
-                    Toast.makeText (ChangeUsernameEmail.this, "Name Cannot Be More Than 14 Characters", Toast.LENGTH_SHORT).show ();
-                }else{
-                    DataManager.setUserName(name.getText().toString());
-                }
-                DataManager.setUserEmail(email.getText().toString());
-                DataManager.setPhoneNumber(phone.getText().toString());
-                changeUserData();
-                finish ();
+        btnSave.setOnClickListener(v -> {
+            if (name.getText ().toString ().length () >= 15){
+                Toast.makeText (ChangeUsernameEmail.this, "Name Cannot Be More Than 14 Characters", Toast.LENGTH_SHORT).show ();
+            }else{
+                DataManager.setUserName(name.getText().toString());
             }
+            DataManager.setUserEmail(email.getText().toString());
+            DataManager.setPhoneNumber(phone.getText().toString());
+            changeUserData();
+            finish ();
         });
     }
 
@@ -113,19 +98,16 @@ public class ChangeUsernameEmail extends AppCompatActivity {
             }, error -> Log.e("Error",String.valueOf(error))){
                 @Override
                 protected Map<String,String> getParams(){
-                    Map<String,String> params = new HashMap<String,String>();
-                    params.put("name", DataManager.getUserName());
+
+                    Map<String,String> params = new HashMap<> ();
                     params.put("phone", DataManager.getPhoneNumber());
+                    params.put("name", DataManager.getUserName());
                     params.put("email", DataManager.getUserEmail());
-                    if (encodedImage != null) {
-                        Log.e ("Error",encodedImage);
-                        params.put ("image", encodedImage);
-                    }
                     return params;
                 }
                 @Override
                 public Map<String, String> getHeaders() {
-                    HashMap<String, String> params = new HashMap<String, String>();
+                    HashMap<String, String> params = new HashMap<> ();
                     params.put("Authorization", "Bearer "+DataManager.getAuthToken());
                     return params;
                 }
@@ -147,10 +129,7 @@ public class ChangeUsernameEmail extends AppCompatActivity {
                         }
 
                         // check for permanent denial of any permission
-                        if (report.isAnyPermissionPermanentlyDenied()) {
-                            // show alert dialog navigating to Settings
-
-                        }
+                        // show alert dialog navigating to Settings
                     }
 
                     @Override
@@ -176,10 +155,7 @@ public class ChangeUsernameEmail extends AppCompatActivity {
                     InputStream inputStream = getContentResolver ().openInputStream (contentURI);
                     bitmap = BitmapFactory.decodeStream (inputStream);
                     userProfilePic.setImageBitmap(bitmap);
-                    byteArrayOutputStream = new ByteArrayOutputStream();
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
-                    encodedImage = android.util.Base64.encodeToString(byteArrayOutputStream.toByteArray(), Base64.DEFAULT);
-                    changeUserData ();
+                    uploadImage (bitmap);
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -188,36 +164,75 @@ public class ChangeUsernameEmail extends AppCompatActivity {
             }
         }
     }
+    void updateProfilePic(){
+        String url = "http://slifixfood.herokuapp.com/profile-Details/";
+        queue = VolleySingleton.getInstance(this).getRequestQueue();
+        req = new StringRequest(Request.Method.POST, url, response -> {
+            try {
+                JSONObject obj = new JSONObject(response);
+                DataManager.setUserImage ("https://slifixfood.herokuapp.com"+obj.getString ("Image"));
+                Toast.makeText (this, "Profile Image Updated Successfully", Toast.LENGTH_SHORT).show ();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }, error -> Log.e("Error",String.valueOf(error))){
+            @Override
+            protected Map<String,String> getParams(){
 
-//    private void uploadImage(Bitmap bitmap){
-//        Toast.makeText (this, "Upload Image Is Called", Toast.LENGTH_SHORT).show ();
-//
-//        try {
-//            jsonObject = new JSONObject();
-//            Toast.makeText (this, encodedImage, Toast.LENGTH_SHORT).show ();
-//            jsonObject.put("image", encodedImage);
-//            // jsonObject.put("aa", "aa");
-//        } catch (JSONException e) {
-//            Log.e("JSONObject Here", e.toString());
-//        }
-//        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, upload_URL, jsonObject,
-//                jsonObject -> {
-//                    Log.e("aaaaaaa", jsonObject.toString());
-//                    rQueue.getCache().clear();
-//                    Toast.makeText(getApplication(), "Image Uploaded Successfully", Toast.LENGTH_SHORT).show();
-//                }, volleyError -> Log.e ("aaaaaaa", volleyError.toString ())){
-//            @Override
-//            public Map<String, String> getHeaders() {
-//                Toast.makeText (ChangeUsernameEmail.this, "Get Headers is Called", Toast.LENGTH_SHORT).show ();
-//                HashMap<String, String> params = new HashMap<String, String>();
-//                params.put("Authorization", "Bearer "+DataManager.getAuthToken());
-//                return params;
-//            }
-//        };
-//
-//        rQueue = Volley.newRequestQueue(ChangeUsernameEmail.this);
-//        rQueue.add(jsonObjectRequest);
-//
-//    }
+                Map<String,String> params = new HashMap<> ();
+                params.put("phone", DataManager.getPhoneNumber());
+                return params;
+            }
+            @Override
+            public Map<String, String> getHeaders() {
+                HashMap<String, String> params = new HashMap<> ();
+                params.put("Authorization", "Bearer "+DataManager.getAuthToken());
+                return params;
+            }
+        };
+        queue.add(req);
+    }
+
+    private void uploadImage(Bitmap bitmap){
+         VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, "http://slifixfood.herokuapp.com/update-photo/",
+                 response -> {
+                     updateProfilePic();
+                     try {
+                         JSONObject obj = new JSONObject(new String(response.data));
+                         Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                     } catch (JSONException e) {
+                         e.printStackTrace();
+                     }
+                 },
+                 error -> {
+                     Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                     Log.e("GotError",""+error.getMessage());
+                 }) {
+             @NonNull
+             @Override
+             protected Map<String, String> getParams() {
+                 Map<String,String> params = new HashMap<> ();
+                 params.put ("phone",DataManager.getPhoneNumber ());
+                 return params;
+             }
+
+             @Override
+            protected Map<String, DataPart> getByteData() {
+                Map<String, DataPart> params = new HashMap<>();
+                long imagename = System.currentTimeMillis();
+                params.put("image", new DataPart(imagename + ".png", getFileDataFromDrawable(bitmap)));
+                return params;
+            }
+
+        };
+
+        //adding the request to volley
+        Volley.newRequestQueue(this).add(volleyMultipartRequest);
+    }
+    public byte[] getFileDataFromDrawable(Bitmap bitmap) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 80, byteArrayOutputStream);
+        return byteArrayOutputStream.toByteArray();
+    }
 
 }
